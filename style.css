@@ -155,7 +155,37 @@ input:checked+.slider:before {
 /* main */
 
 .main-container {
-    display: grid;
-    grid-template-columns: repeat(4,300px);
-    padding: 55px 15px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.card {
+    width: 300px;
+    height: 280px;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 20px 10px;
+    cursor: pointer;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+.card_main {
+    background: linear-gradient(180deg,#fd6a63,#feb46b 40%,#fff 0,#fff);
+}
+.card_main > img {
+    display: block;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 10px solid #fff;
+    object-fit: cover;
+    margin: 30px auto;
+}
+.card_play > img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+}
+.card_play > span {
+    display: none;
 }
