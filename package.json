@@ -1,0 +1,24 @@
+{
+  "name": "english-for-kids",
+  "version": "1.0.0",
+  "description": "rss task 2020q1",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RemyJS/english-for-kids.git"
+  },
+  "keywords": [
+    "rss",
+    "js",
+    "front-end"
+  ],
+  "author": "RemyJS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RemyJS/english-for-kids/issues"
+  },
+  "homepage": "https://github.com/RemyJS/english-for-kids#readme"
+}

@@ -1,6 +1,5 @@
-import cards from './assets/cards.js';
+//import cards from './assets/cards'
 console.log(cards);
-
 const category = cards[0];
 const nav = document.querySelectorAll(".nav_item");
 
