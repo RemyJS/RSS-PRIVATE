@@ -7,3 +7,7 @@ for(let i = 0; i < category.length; i++){
     nav[i].text = category[i];
     cardText[i].textContent = category[i];
 }
+const actionA = cards[1]
+for(let i = 0 ; i < actionA.length; i++){
+    
+}

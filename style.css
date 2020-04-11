@@ -168,6 +168,16 @@ input:checked+.slider:before {
     cursor: pointer;
     -webkit-transition: .3s;
     transition: .3s;
+    text-decoration: none;
+}
+.card__text {
+    display: block;
+    font-family: "Roboto";
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+    text-align: center;
+    color: #212529;
 }
 .card_main {
     background: linear-gradient(180deg,#fd6a63,#feb46b 40%,#fff 0,#fff);
@@ -181,11 +191,29 @@ input:checked+.slider:before {
     object-fit: cover;
     margin: 30px auto;
 }
+.card_play {
+    height: 250px;
+}
 .card_play > img {
     width: inherit;
     height: inherit;
     object-fit: cover;
 }
-.card_play > span {
+.card_play > .card__text {
     display: none;
+}
+.card_train {
+    height: 250px;
+}
+.card_train > img {
+    width: inherit;
+    height: 200px;
+    object-fit: cover;
+}
+.card_train > .card__text {
+    width: inherit;
+    height: 52px;
+    border-radius: 5px;
+    margin-top: -6px;
+    background: #fff;
 }
