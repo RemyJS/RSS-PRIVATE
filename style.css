@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
 }
-
+html {
+    font-family: "Roboto";
+}
 header, main {
     border: 1px solid black;
     background: blanchedalmond;
@@ -29,12 +31,15 @@ header, main {
 
 #menuToggle a {
     display: flex;
-    color: #232323;
+    padding: 10px 0;
+    font-size: 22px;
+    color: #fff;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 #menuToggle a:hover {
-    color: tomato;
+    color:black;
 }
 
 #menuToggle input {
@@ -89,10 +94,10 @@ header, main {
 #menu {
     position: absolute;
     width: 300px;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-    background: #ededed;
+    height: 89vh;
+    margin-top: -100px;
+    padding: 125px 50px 50px;
+    background: linear-gradient(40deg,#ffd86f,#fc6262);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
@@ -172,7 +177,6 @@ input:checked+.slider:before {
 }
 .card__text {
     display: block;
-    font-family: "Roboto";
     font-size: 24px;
     line-height: 36px;
     font-weight: 400;
