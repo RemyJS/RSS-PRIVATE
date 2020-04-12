@@ -25,7 +25,7 @@ html {
     position: relative;
 }
 
-#menuToggle {
+.menu__toggle {
     display: block;
     position: relative;
     z-index: 1;
@@ -33,7 +33,7 @@ html {
     user-select: none;
 }
 
-#menuToggle a {
+.menu__toggle a {
     display: flex;
     padding: 10px 0;
     font-size: 22px;
@@ -42,11 +42,11 @@ html {
     transition: color 0.3s ease;
 }
 
-#menuToggle a:hover {
+.menu__toggle a:hover {
     color:black;
 }
 
-#menuToggle input {
+.menu__toggle input {
     display: block;
     width: 40px;
     height: 32px;
@@ -59,7 +59,7 @@ html {
     -webkit-touch-callout: none;
 }
 
-#menuToggle span {
+.menu__toggle span {
     display: block;
     width: 33px;
     height: 4px;
@@ -72,30 +72,30 @@ html {
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
 }
 
-#menuToggle span:first-child {
+.menu__toggle span:first-child {
     transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2) {
+.menu__toggle span:nth-last-child(2) {
     transform-origin: 0% 100%;
 }
 
-#menuToggle input:checked~span {
+.menu__toggle input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
     background: #232323;
 }
 
-#menuToggle input:checked~span:nth-last-child(3) {
+.menu__toggle input:checked~span:nth-last-child(3) {
     opacity: 0;
     transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-#menuToggle input:checked~span:nth-last-child(2) {
+.menu__toggle input:checked~span:nth-last-child(2) {
     transform: rotate(-45deg) translate(0, -1px);
 }
 
-#menu {
+.menu__list {
     position: absolute;
     left: calc(675px - 50vw);
     width: 300px;
@@ -110,8 +110,14 @@ html {
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
-#menuToggle input:checked~div {
+.menu__toggle input:checked~div {
     transform: none;
+}
+.green_nav{
+    background: linear-gradient(40deg, #00bf82, #0099ae);
+}
+.green_main {
+    background: linear-gradient(180deg,#0099ae,#00bf82 40%,#fff 0,#fff) !important;
 }
 
 /* switch */
@@ -164,7 +170,7 @@ input:checked+.slider:before {
 
 /* main */
 
-.main-container {
+.main-page {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
