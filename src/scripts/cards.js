@@ -4,7 +4,7 @@ const cards = [
     {
       word: 'cry',
       translation: 'плакать',
-      image: '../assets/../assets/img/cry.jpg',
+      image: '../assets/img/cry.jpg',
       audioSrc: 'audio/cry.mp3'
     },
     {
