@@ -1,4 +1,6 @@
-const cards = [ 
+/* eslint quotes: ["error", "single"] */
+/* eslint comma-dangle: ["error", "never"] */
+const cards = [
   ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'],
   [
     {
@@ -300,5 +302,5 @@ const cards = [
       audioSrc: 'audio/laugh.mp3'
     }
   ]
-]
+];
 // export default cards

@@ -1,5 +1,5 @@
 function createMain() {
-  if(main.firstElementChild)main.firstElementChild.remove();
+  if (main.firstElementChild) main.firstElementChild.remove();
   const container = document.createElement("div");
   container.className = "container";
   const playMode = Game.playmode;
@@ -9,16 +9,16 @@ function createMain() {
     const span = document.createElement("span");
     //add class
     a.className = "card card_main";
-    if(!playMode)a.classList.add("green_main");
+    if (!playMode) a.classList.add("green_main");
     a.dataset.category = i + 1;
     span.className = "card__text";
     img.alt = "card";
-    img.src = cards[i+1][0].image;
+    img.src = cards[i + 1][0].image;
     span.textContent = category[i];
-    
-    a.addEventListener("click",function (){
+
+    a.addEventListener("click", function () {
       createCategory(this.dataset.category);
-    })
+    });
     a.append(img);
     a.append(span);
     container.append(a);
@@ -27,4 +27,3 @@ function createMain() {
   return container;
 }
 const mainPage = createMain();
-
