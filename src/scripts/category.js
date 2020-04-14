@@ -4,6 +4,7 @@ function createCategory(n) {
   const category = cards[n];
   container.className = "container";
   const playMode = Game.playmode;
+  if (!playMode) createTrainCategory(n);
   for (let i = 0; i < category.length; i += 1) {
     const a = document.createElement("a");
     const img = document.createElement("img");
@@ -19,5 +20,5 @@ function createCategory(n) {
     a.append(word);
     container.append(a);
   }
-  main.append(container);
+  // main.append(container);
 }

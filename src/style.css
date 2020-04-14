@@ -2,9 +2,11 @@
     margin: 0;
     padding: 0;
 }
+
 html {
     font-family: "Roboto";
 }
+
 /* header, main {
     border: 1px solid black;
     background: blanchedalmond;
@@ -43,7 +45,7 @@ html {
 }
 
 .menu__toggle a:hover {
-    color:black;
+    color: black;
 }
 
 .menu__toggle input {
@@ -102,7 +104,7 @@ html {
     height: 89vh;
     margin-top: -100px;
     padding: 125px 50px 50px;
-    background: linear-gradient(40deg,#ffd86f,#fc6262);
+    background: linear-gradient(40deg, #ffd86f, #fc6262);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     transform-origin: 0% 0%;
@@ -113,11 +115,13 @@ html {
 .menu__toggle input:checked~div {
     transform: none;
 }
-.green_nav{
+
+.green_nav {
     background: linear-gradient(40deg, #00bf82, #0099ae);
 }
+
 .green_main {
-    background: linear-gradient(180deg,#0099ae,#00bf82 40%,#fff 0,#fff) !important;
+    background: linear-gradient(180deg, #0099ae, #00bf82 40%, #fff 0, #fff) !important;
 }
 
 /* switch */
@@ -178,6 +182,7 @@ input:checked+.slider:before {
     max-width: 1440px;
     padding: 55px 15px 20px;
 }
+
 .card {
     width: 300px;
     height: 280px;
@@ -189,6 +194,7 @@ input:checked+.slider:before {
     transition: .3s;
     text-decoration: none;
 }
+
 .card__text {
     display: block;
     font-size: 24px;
@@ -197,10 +203,12 @@ input:checked+.slider:before {
     text-align: center;
     color: #212529;
 }
+
 .card_main {
-    background: linear-gradient(180deg,#fd6a63,#feb46b 40%,#fff 0,#fff);
+    background: linear-gradient(180deg, #fd6a63, #feb46b 40%, #fff 0, #fff);
 }
-.card_main > img {
+
+.card_main>img {
     display: block;
     width: 140px;
     height: 140px;
@@ -209,29 +217,74 @@ input:checked+.slider:before {
     object-fit: cover;
     margin: 30px auto;
 }
+
 .card_play {
     height: 250px;
 }
-.card_play > img {
+
+.card_play>img {
     width: inherit;
     height: inherit;
     object-fit: cover;
 }
-.card_play > .card__text {
+
+.card_play>.card__text {
     display: none;
 }
+
 .card_train {
     height: 250px;
+    display: block;
 }
-.card_train > img {
+
+.card_train>img {
     width: inherit;
     height: 200px;
     object-fit: cover;
 }
-.card_train > .card__text {
+
+.card_train>.card__text {
     width: inherit;
     height: 52px;
     border-radius: 5px;
     margin-top: -6px;
     background: #fff;
+}
+
+/* flip effect  */
+
+.flip-container {
+    perspective: 1000;
+}
+
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+    width: 300px;
+    height: 250px;
+}
+.flip-container {
+    margin: 20px 10px;
+}
+.flipper {
+    transition: 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.front, .back {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.front {
+    z-index: 2;
+}
+
+.back {
+    transform: rotateY(180deg);
 }

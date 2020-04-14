@@ -15,9 +15,9 @@ nav[0].addEventListener("click", function () {
 });
 for (let i = 0; i < category.length; i += 1) {
   nav[i + 1].text = category[i];
-  nav[i + 1].addEventListener("click", () => createCategory(i + 1) );
+  nav[i + 1].addEventListener("click", () => createCategory(i + 1));
 };
-toogle.addEventListener("click", () => {
+function changeGameModeStyle() {
   const list = document.querySelector(".menu__list");
   const mainCard = document.querySelectorAll(".card_main");
   const categoryCard = document.querySelectorAll(".card_train, .card_play");
@@ -44,4 +44,6 @@ toogle.addEventListener("click", () => {
       });
     }
   }
-});
+}
+changeGameModeStyle();
+toogle.addEventListener("click", changeGameModeStyle);
