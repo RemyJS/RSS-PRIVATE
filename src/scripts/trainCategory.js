@@ -1,4 +1,6 @@
 function createTrainCategory(n) {
+  if (main.firstElementChild) main.firstElementChild.remove();
+  main.dataset.category = n;
   const container = document.createElement("div");
   const category = cards[n];
   container.className = "container";

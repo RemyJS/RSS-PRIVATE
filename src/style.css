@@ -162,6 +162,14 @@ html {
     transition: .4s;
     border-radius: 50%;
 }
+.slider:after {
+    content: "TRAIN";
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    line-height: 34px;
+    margin-left: 45px;
+}
 
 input:checked+.slider {
     background: linear-gradient(40deg, #ffd86f, #fc6262);
@@ -172,6 +180,10 @@ input:checked+.slider:before {
     transform: translateX(86px);
 }
 
+input:checked+.slider:after  {
+    content: "PLAY";
+    margin-left: 25px;
+}
 /* main */
 
 .container {

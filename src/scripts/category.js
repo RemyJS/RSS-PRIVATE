@@ -1,25 +1,32 @@
 function createCategory(n) {
-  if (main.firstElementChild) main.firstElementChild.remove();
-  const container = document.createElement("div");
-  const category = cards[n];
-  container.className = "container";
-  const playMode = Game.playmode;
-  if (!playMode) createTrainCategory(n);
-  for (let i = 0; i < category.length; i += 1) {
-    const a = document.createElement("a");
-    const img = document.createElement("img");
-    const word = document.createElement("span");
-    const translation = document.createElement("span");
-    // add class
-    a.className = "card";
-    playMode ? a.classList.add("card_play") : a.classList.add("card_train");
-    word.className = "card__text";
-    word.textContent = category[i].word;
-    img.src = category[i].image;
-    a.append(img);
-    a.append(word);
-    container.append(a);
+  if (Game.playmode) {
+    createPlayCategory(n);
+  } else {
+    createTrainCategory(n);
   }
-  // main.append(container);
 }
-/* global cards, main, Game */
+
+function changeGameModeStyle() {
+  const list = document.querySelector(".menu__list");
+  const mainCard = document.querySelectorAll(".card_main");
+  if (Game.playmode) {
+
+    list.classList.remove("green_nav");
+    if (+main.dataset.category === 0) {
+      mainCard.forEach((card) => card.classList.remove("green_main"));
+    } else {
+      createPlayCategory(+main.dataset.category);
+    }
+  } else {
+    list.classList.add("green_nav");
+    if (+main.dataset.category === 0) {
+      mainCard.forEach((card) => card.classList.add("green_main"));
+    } else {
+      createTrainCategory(+main.dataset.category);
+    }
+
+  }
+}
+
+toogle.addEventListener("click", changeGameModeStyle);
+/* global  main, Game */
