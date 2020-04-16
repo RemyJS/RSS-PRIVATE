@@ -98,9 +98,11 @@ html {
 }
 
 .menu__list {
-    position: absolute;
-    left: calc(675px - 50vw);
-    width: 300px;
+    /* * position: absolute;  
+    left: calc(675px - 50vw);  */
+    position: fixed;
+    left: 0;
+    width: 217px;
     height: 89vh;
     margin-top: -100px;
     padding: 125px 50px 50px;
