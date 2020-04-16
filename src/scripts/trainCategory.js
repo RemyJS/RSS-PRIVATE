@@ -21,6 +21,8 @@ function createTrainCategory(n) {
     const word = document.createElement("span");
     const rotate = document.createElement("div");
     const translation = document.createElement("span");
+    // add audio
+    af.dataset.audio = category[i].audioSrc;
     // add class
     af.className = "card card_train";
     ab.className = "card card_train";
@@ -57,6 +59,14 @@ main.addEventListener("click", (event) => {
       }
     };
     flipper.addEventListener("mouseout", handler);
+  }else {
+    const dataAudio = event.target.closest("a[data-audio]");
+    if ( dataAudio) {
+      audio.src = dataAudio.dataset.audio;
+      audio.play();
+    }
   }
 
 });
+/* global cards, main, Game */
+

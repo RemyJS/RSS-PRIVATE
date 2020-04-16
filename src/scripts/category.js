@@ -22,3 +22,4 @@ function createCategory(n) {
   }
   // main.append(container);
 }
+/* global cards, main, Game */
