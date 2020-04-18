@@ -1,4 +1,4 @@
-function createMain() {
+function createMain() { /* global cards, main, Game */
   if (main.firstElementChild) main.firstElementChild.remove();
   main.dataset.category = 0;
   const container = document.createElement("div");
@@ -25,6 +25,5 @@ function createMain() {
     container.append(a);
   }
   main.append(container);
-  return container;
 }
-const mainPage = createMain();
+createMain();

@@ -1,0 +1,86 @@
+.card_play {
+    height: 250px;
+}
+.card_play:hover {
+    box-shadow: 0px 0px 8px 0px #ff9800;
+    border: 1px solid #ff9800;
+}
+.card_play>img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+}
+
+.card_play>.card__text {
+    display: none;
+}
+/* score style */
+.score {
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    height: 40px;
+    margin: 0 auto;
+}
+.star {
+    background-image: url("../assets/img/star.svg");
+    background-size: 40px;
+    background-repeat: no-repeat;
+    width: 40px;
+    height: 40px;
+}
+.star_win {
+    background-image: url("../assets/img/star-win.svg");
+}
+.controls {
+    width: 100%;
+    text-align:center;
+}
+.button_start {
+    box-sizing: border-box;
+    padding: 20px 25px;
+    font-size: 24px;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 650px;
+    height: 65px;
+    background: linear-gradient(40deg,#ffd86f,#fc6262);
+    color: #fff;
+    border-radius: 10px;
+    outline: 0;
+    border-width: 1px;
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+.button_repeat {
+    width: 65px;
+    font-size: 0;
+    background-image: url("../assets/img/repeat.svg"),linear-gradient(40deg,#ffd86f,#fc6262);
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: 32px 32px,cover;
+    background-position: 50%;
+}
+.checked {
+    opacity: 0.5;
+}
+.game__resualt {
+    background-image: url("../assets/img/win.png");
+    max-height: 480px;
+    height: 50vw;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: contain;
+}
+.game__resualt_text {
+    text-align: center ;
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff9800;
+}
+.lose-screen  {
+    background-image: url("../assets/img/lose.png");
+}
+.lose-screen_text {
+    color: #009688;
+}

@@ -29,4 +29,4 @@ function changeGameModeStyle() {
 }
 
 toogle.addEventListener("click", changeGameModeStyle);
-/* global  main, Game */
+/* global  main, Game, toogle, createTrainCategory, createPlayCategory */
