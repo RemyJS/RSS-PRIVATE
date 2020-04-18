@@ -1,7 +1,7 @@
 /* eslint quotes: ["error", "single"] */
 /* eslint comma-dangle: ["error", "never"] */
 const cards = [
-  ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions'],
+  ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions', 'Food', 'Natural'],
   [
     {
       word: 'cry',
@@ -300,6 +300,106 @@ const cards = [
       translation: 'смех',
       image: '../assets/img/laugh.jpg',
       audioSrc: '../assets/audio/laugh.mp3'
+    }
+  ],
+  [
+    {
+      word: 'banana',
+      translation: 'банан',
+      image: '../assets/img/banana.jpg',
+      audioSrc: '../assets/audio/banana.mp3'
+    },
+    {
+      word: 'burger',
+      translation: 'бургер',
+      image: '../assets/img/burger.jpg',
+      audioSrc: '../assets/audio/burger.mp3'
+    },
+    {
+      word: 'pasta',
+      translation: 'макароны',
+      image: '../assets/img/pasta.jpg',
+      audioSrc: '../assets/audio/pasta.mp3'
+    },
+    {
+      word: 'cake',
+      translation: 'торт',
+      image: '../assets/img/cake.jpg',
+      audioSrc: '../assets/audio/cake.mp3'
+    },
+    {
+      word: 'carrot',
+      translation: 'морковь',
+      image: '../assets/img/carrot.jpg',
+      audioSrc: '../assets/audio/carrot.mp3'
+    },
+    {
+      word: 'tea',
+      translation: 'чай',
+      image: '../assets/img/tea.jpg',
+      audioSrc: '../assets/audio/tea.mp3'
+    },
+    {
+      word: 'onion',
+      translation: 'лук',
+      image: '../assets/img/onion.jpg',
+      audioSrc: '../assets/audio/onion.mp3'
+    },
+    {
+      word: 'potato',
+      translation: 'картофель',
+      image: '../assets/img/potato.jpg',
+      audioSrc: '../assets/audio/potato.mp3'
+    }
+  ],
+  [
+    {
+      word: 'tree',
+      translation: 'дерево',
+      image: '../assets/img/tree.jpg',
+      audioSrc: '../assets/audio/tree.mp3'
+    },
+    {
+      word: 'grass',
+      translation: 'трава',
+      image: '../assets/img/grass.jpg',
+      audioSrc: '../assets/audio/grass.mp3'
+    },
+    {
+      word: 'river',
+      translation: 'река',
+      image: '../assets/img/river.jpg',
+      audioSrc: '../assets/audio/river.mp3'
+    },
+    {
+      word: 'bush',
+      translation: 'куст',
+      image: '../assets/img/bush.jpg',
+      audioSrc: '../assets/audio/bush.mp3'
+    },
+    {
+      word: 'sand',
+      translation: 'песок',
+      image: '../assets/img/sand.jpg',
+      audioSrc: '../assets/audio/sand.mp3'
+    },
+    {
+      word: 'lake',
+      translation: 'озеро',
+      image: '../assets/img/lake.jpg',
+      audioSrc: '../assets/audio/lake.mp3'
+    },
+    {
+      word: 'sky',
+      translation: 'небо',
+      image: '../assets/img/sky.jpg',
+      audioSrc: '../assets/audio/sky.mp3'
+    },
+    {
+      word: 'flower',
+      translation: 'цветок',
+      image: '../assets/img/flower.jpg',
+      audioSrc: '../assets/audio/flower.mp3'
     }
   ]
 ];
