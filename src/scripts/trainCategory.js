@@ -1,4 +1,4 @@
-function createTrainCategory(n) {
+function createTrainCategory(n, main, cards, audio) {
   if (main.firstElementChild) main.firstElementChild.remove();
   main.dataset.category = n;
   const container = document.createElement("div");
@@ -69,5 +69,5 @@ function createTrainCategory(n) {
     }
   });
 }
+export default createTrainCategory;
 
-/* global cards, main, Game , audio */

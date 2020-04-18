@@ -1,5 +1,6 @@
-let cardsInGame; /* global cards, main, Game, audio */
-function createPlayCategory(n) {
+import createMain from "./mainpage";
+
+function createPlayCategory(n, main, cards, Game, audio) {
   if (main.firstElementChild) main.firstElementChild.remove();
   main.dataset.category = n;
 
@@ -16,7 +17,7 @@ function createPlayCategory(n) {
 
   container.append(score);
 
-  cardsInGame = [];// reset cardsInGame
+  const cardsInGame = [];// reset cardsInGame
 
   for (let i = 0; i < category.length; i += 1) {
     const a = document.createElement("a");
@@ -115,10 +116,11 @@ function createPlayCategory(n) {
             wrap.append(text);
             wrap.append(gameResualt);
             main.append(wrap);
-            setTimeout(createMain, 3000);
+            setTimeout(() => createMain(main, cards, Game, audio), 3000);
           }
         });
       });
     }
   });
 }
+export default createPlayCategory

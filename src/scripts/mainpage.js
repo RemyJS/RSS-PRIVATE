@@ -1,7 +1,9 @@
-function createMain() { /* global cards, main, Game */
+import { createCategory } from "./category";
+function createMain(main, cards, Game, audio) {
   if (main.firstElementChild) main.firstElementChild.remove();
   main.dataset.category = 0;
   const container = document.createElement("div");
+  const category = cards[0];
   container.className = "container";
   
   for (let i = 0; i < category.length; i += 1) {
@@ -17,8 +19,8 @@ function createMain() { /* global cards, main, Game */
     img.src = cards[i + 1][0].image;
     span.textContent = category[i];
 
-    a.addEventListener("click", function () {
-      createCategory(this.dataset.category);
+    a.addEventListener("click", () => {
+      createCategory(a.dataset.category, Game, main, cards, audio);
     });
     a.append(img);
     a.append(span);
@@ -26,4 +28,4 @@ function createMain() { /* global cards, main, Game */
   }
   main.append(container);
 }
-createMain();
+export default createMain

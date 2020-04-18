@@ -10,7 +10,7 @@ html {
 .header {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 90%;
     height: 45px;
     max-width: 1350px;
     margin: 40px auto 0;
@@ -93,11 +93,9 @@ html {
 }
 
 .menu__list {
-    /* * position: absolute;  
-    left: calc(675px - 50vw);  */
     position: fixed;
     left: 0;
-    width: 217px;
+    width: 220px;
     height: 89vh;
     margin-top: -100px;
     padding: 125px 50px 50px;
