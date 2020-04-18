@@ -49,7 +49,7 @@ function createTrainCategory(n) {
   }
   main.append(container);
 
-  main.addEventListener("click", (event) => {
+  container.addEventListener("click", (event) => {
     if (event.target.className === "rotate__arrow") {
       const flipper = event.target.closest(".flipper");
       flipper.classList.add("rotate_transform");
