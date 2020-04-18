@@ -48,27 +48,26 @@ function createTrainCategory(n) {
     container.append(flipContainer);
   }
   main.append(container);
+
+  main.addEventListener("click", (event) => {
+    if (event.target.className === "rotate__arrow") {
+      const flipper = event.target.closest(".flipper");
+      flipper.classList.add("rotate_transform");
+      const handler = (e) => {
+        if (e.relatedTarget === flipper.parentNode.parentNode) {
+          flipper.classList.remove("rotate_transform");
+          flipper.removeEventListener("mouseout", handler);
+        }
+      };
+      flipper.addEventListener("mouseout", handler);
+    } else {
+      const dataAudio = event.target.closest("a[data-audio]");
+      if (dataAudio) {
+        audio.src = dataAudio.dataset.audio;
+        audio.play();
+      }
+    }
+  });
 }
 
-main.addEventListener("click", (event) => {
-  if (event.target.className === "rotate__arrow") {
-    const flipper = event.target.closest(".flipper");
-    flipper.classList.add("rotate_transform");
-    const handler = (e) => {
-      if (e.relatedTarget === flipper.parentNode.parentNode) {
-        flipper.classList.remove("rotate_transform");
-        flipper.removeEventListener("mouseout", handler);
-      }
-    };
-    flipper.addEventListener("mouseout", handler);
-  }else {
-    const dataAudio = event.target.closest("a[data-audio]");
-    if ( dataAudio) {
-      audio.src = dataAudio.dataset.audio;
-      audio.play();
-    }
-  }
-
-});
-/* global cards, main, Game */
-
+/* global cards, main, Game , audio */
