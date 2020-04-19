@@ -1,16 +1,27 @@
-const path = require('path');
+const path = require("path");
 
 module.exports = {
+  devtool: "source-map",
   entry: {
-    // cards: "./src/scripts/cards.js",
     script: "./src/scripts/script.js",
-    // trainCategory: "./src/scripts/trainCategory.js",
-    // playCategory: "./src/scripts/playCategory.js",
-    // category: "./src/scripts/category.js",
-    // mainpage: "./src/scripts/mainpage.js",
   },
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+            plugins: ["@babel/plugin-proposal-object-rest-spread"]
+          },
+        }
+      },
+    ],
   },
 };
