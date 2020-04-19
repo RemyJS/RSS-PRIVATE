@@ -17,7 +17,7 @@ function createPlayCategory(n, main, cards, Game, audio) {
 
   container.append(score);
 
-  const cardsInGame = [];// reset cardsInGame
+  const cardsInGame = [];
 
   for (let i = 0; i < category.length; i += 1) {
     const a = document.createElement("a");
@@ -54,8 +54,8 @@ function createPlayCategory(n, main, cards, Game, audio) {
     error: 0,
     correct: 0,
   };
-  button.addEventListener("click", (event) => {
-    const gameStarted = event.target.classList.contains("button_repeat");
+  button.addEventListener("click", (e) => {
+    const gameStarted = e.target.classList.contains("button_repeat");
 
     if (gameStarted) {
       audio.src = cardsInGame[gameIndex].audioSrc;
@@ -83,6 +83,8 @@ function createPlayCategory(n, main, cards, Game, audio) {
                 audio.play();
               }, 700);
             }
+          } else if (event.target.classList.contains("checked")) {
+            return;
           } else {
             gameScore.isWin = false;
             gameScore.error += 1;
@@ -123,4 +125,4 @@ function createPlayCategory(n, main, cards, Game, audio) {
     }
   });
 }
-export default createPlayCategory
+export default createPlayCategory;
