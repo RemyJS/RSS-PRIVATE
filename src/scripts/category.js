@@ -29,5 +29,5 @@ function changeGameModeStyle(main, Game, cards, audio) {
 
   }
 }
-export { createCategory, changeGameModeStyle }
+export { createCategory, changeGameModeStyle };
 

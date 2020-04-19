@@ -1,6 +1,10 @@
 import cards from "./cards";
 import createMain from "./mainpage";
 import { createCategory, changeGameModeStyle } from "./category";
+import "../style.css";
+import "../playmode.css";
+import "../trainmode.css";
+import "../index.html";
 
 const main = document.querySelector("main");
 const nav = document.querySelectorAll(".menu__item");
