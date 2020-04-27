@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header, footer{
+    background-color: #1f1f1f;
+    color: whitesmoke;
+}
