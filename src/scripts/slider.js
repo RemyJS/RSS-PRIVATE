@@ -103,6 +103,8 @@ const multiItemSlider = (function () {
 
     // инициализация
     const addIndicators = () => {
+      const oldIndicators = document.querySelector(".slider__indicators");
+      if (oldIndicators !== null) oldIndicators.remove();
       const sliderIndicators = document.createElement("ul");
       sliderIndicators.classList.add("slider__indicators");
       for (let i = 0; i < sliderItems.length; i += 1) {
@@ -131,6 +133,6 @@ const multiItemSlider = (function () {
   };
 }());
 
-const slider = multiItemSlider(".slider");
+// const slider = multiItemSlider(".slider");
 
 // export {multiItemSlider};
