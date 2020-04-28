@@ -10,13 +10,14 @@
 </head>
 
 <body>
-    <header>
-        <h1>Movie Search</h1>
+    <header class="header">
+        <h1 class="header__title">Movie Search</h1>
     </header>
     <main>
         <form class="search">
-            <input class="search__input" type="text" placeholder="Search movie">
+            <input class="search__input" type="text" placeholder="Search movie" value="robocop">
             <button class="search__button">Search</button>
+            <h3 class="search__info"></h3>
         </form>
         <section class="slider">
             <div class="slider__wrapper">
@@ -39,9 +40,9 @@
             <a href="#" class="slider__control slider__control_right">⮞</a>
         </section>
     </main>
-    <footer>
-        <h3><a href="https://rs.school/">RS School 2020q1</a></h3>
-        <h3><a href="https://github.com/RemyJS">RemyJS</a></h3>
+    <footer class="footer">
+        <h3><a class="footer__link" href="https://rs.school/">RS School 2020q1</a></h3>
+        <h3><a class="footer__link" href="https://github.com/RemyJS">RemyJS</a></h3>
     </footer>
 </body>
 <script src="./scripts/slider.js"></script>
