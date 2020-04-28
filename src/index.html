@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/style.css">
     <title>Movie search</title>
 </head>
+
 <body>
     <header>
         <h1>Movie Search</h1>
     </header>
     <main>
-
+        <form class="search">
+            <input class="search__input" type="text" placeholder="Search movie">
+            <button class="search__button">Search</button>
+        </form>
+        <section class="slider">
+            <div class="slider__wrapper">
+                <div class="slider__item">
+                    <div class="card">
+                        <div >requem for dream</div>
+                        <div class="card__poster"></div>
+                        <div class="card__year">2000</div>
+                        <div class="card__raiting"><span class="card__raiting_imdb">9.0</span></div>
+                    </div>
+                </div>
+                <div class="slider__item">2</div>
+                <div class="slider__item">3</div>
+                <div class="slider__item">4</div>
+                <!-- <div class="slider__item">5</div>
+                <div class="slider__item">6</div> -->
+            </div>
+            <!-- control -->
+            <a href="#" class="slider__control slider__control_left">⮜</a>
+            <a href="#" class="slider__control slider__control_right">⮞</a>
+        </section>
     </main>
     <footer>
         <h3><a href="https://rs.school/">RS School 2020q1</a></h3>
         <h3><a href="https://github.com/RemyJS">RemyJS</a></h3>
     </footer>
 </body>
+<script src="./scripts/slider.js"></script>
+
 </html>
