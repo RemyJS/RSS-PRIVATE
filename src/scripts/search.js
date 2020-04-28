@@ -1,28 +1,36 @@
 // import { multiItemSlider } from "./slider.js";
 console.log("search init");
 function search() {
+  // event.preventDefault();
   const title = document.querySelector(".search__input").value;
   const wrapper = document.querySelector(".slider__wrapper");
   async function getMovieTitle(title) {
-    const url = `https://www.omdbapi.com/?s=${title}&apikey=9b67fc54`;
+    const url = `https://www.omdbapi.com/?s=${title}&type=movie&page=1&apikey=3beb9416`;
     const res = await fetch(url);
     const data = await res.json();
 
     return data;
   }
+
   const getMovies = async () => {
     const movies = await getMovieTitle(title);
-    console.log(movies);
-    return movies.Search;
+    if (movies.Response === "True") {
+      console.log(movies);
+      return movies.Search;
+    }
+    const msg = document.querySelector(".search__info");
+    msg.innerText = movies.Error;
+    setTimeout(() => { msg.innerText = "" }, 3000);
+    throw (movies.Error);
   };
   const movies = getMovies();
   function sliderPush(movie) {
-    const getRating = async (id) =>{
-      const url = `https://www.omdbapi.com/?i=${id}&apikey=9b67fc54`;
+    const getRating = async (id) => {
+      const url = `https://www.omdbapi.com/?i=${id}&type=movie&apikey=3beb9416`;
       const res = await fetch(url);
       const data = await res.json();
       return data;
-    }
+    };
     // tag
     const item = document.createElement("div");
     const card = document.createElement("div");
@@ -42,10 +50,12 @@ function search() {
     // value
     cardTitle.innerText = movie.Title;
     cardTitle.href = `https://www.imdb.com/title/${movie.imdbID}/`;
-    cardPoster.style.backgroundImage = `url(${movie.Poster})`;
+    if (movie.Poster !== "N/A") cardPoster.style.backgroundImage = `url(${movie.Poster})`;
     cardYear.innerText = movie.Year;
     getRating(movie.imdbID).then((r) => {
       imdb.innerText = r.Ratings[0].Value;
+    }).catch(() => {
+      cardRating.innerText = "no ratings";
     });
     // append
     cardRating.append(imdb);
@@ -62,9 +72,13 @@ function search() {
     movies.forEach(movie => {
       sliderPush(movie);
     });
-  })
-};
+    multiItemSlider(".slider");
+  }).catch((error) => { console.log(error) });
+
+}
 
 const searchButton = document.querySelector(".search__button");
 
 searchButton.addEventListener("click", search);
+
+search();
