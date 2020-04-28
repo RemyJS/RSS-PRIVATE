@@ -85,31 +85,36 @@
     margin: 0 auto;
 }
 
-.card__header {
+.card__title {
+    display: inline-flex;
+    overflow: hidden;
     color: black;
-    margin: 10px 0;
+    height: 50px;
+    align-items: center;
 }
 
 .card__poster {
     width: 300px;
     height: 455px;
-    background: url("../../assets/img/card1.jpg") no-repeat;
-    background-size: cover;
+    background-image: url("../../assets/img/card.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
-.card__year {}
+.card__year {
 
-.card__raiting {
+}
+
+.card__rating {
     position: relative;
 }
 
-.card__raiting_imdb::before {
-    position: absolute;
-    content: "";
-    background: url("../../assets/img/imdb.png") no-repeat;
-    background-size: contain;
-    width: 40px;
-    height: 40px;
-    top: -8px;
-    left: 69px;
+.card__rating_imdb {
+    display: inline-block;
+    background: url(../../assets/img/imdb.png) no-repeat;
+    background-size: 37px;
+    width: 150px;
+    background-position: 0px -5px;
+    top: 0px;
+    left: 70px;
 }

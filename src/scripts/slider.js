@@ -133,3 +133,4 @@ const multiItemSlider = (function () {
 
 const slider = multiItemSlider(".slider");
 
+// export {multiItemSlider};
