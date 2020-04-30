@@ -1,11 +1,16 @@
-// import { multiItemSlider } from "./slider.js";
+//import { multiItemSlider } from "./slider.js";
 console.log("search init");
-function search() {
-  // event.preventDefault();
-  const title = document.querySelector(".search__input").value;
+function search(title, startPage) {
+
   const wrapper = document.querySelector(".slider__wrapper");
-  async function getMovieTitle(title) {
-    const url = `https://www.omdbapi.com/?s=${title}&type=movie&page=1&apikey=3beb9416`;
+  let lastPage = 2; // default value
+  if (startPage === 1) {
+    wrapper.innerHTML = "";
+    wrapper.style.transform = "translateX(0%)";
+  }
+
+  async function getMovieTitle(title, page) {
+    const url = `https://www.omdbapi.com/?s=${title}&type=movie&page=${page}&apikey=3beb9416`;
     const res = await fetch(url);
     const data = await res.json();
 
@@ -13,17 +18,17 @@ function search() {
   }
 
   const getMovies = async () => {
-    const movies = await getMovieTitle(title);
-    if (movies.Response === "True") {
-      console.log(movies);
-      return movies.Search;
+    const moviesPromise = await getMovieTitle(title, startPage);
+    if (moviesPromise.Response === "True") {
+      lastPage = Math.ceil(moviesPromise.totalResults / 10); // get value from promise
+      return moviesPromise.Search;
     }
     const msg = document.querySelector(".search__info");
-    msg.innerText = movies.Error;
-    setTimeout(() => { msg.innerText = "" }, 3000);
-    throw (movies.Error);
+    msg.innerText = moviesPromise.Error;
+    setTimeout(() => { msg.innerText = ""; }, 3000);
+    throw (moviesPromise.Error);
   };
-  const movies = getMovies();
+
   function sliderPush(movie) {
     const getRating = async (id) => {
       const url = `https://www.omdbapi.com/?i=${id}&type=movie&apikey=3beb9416`;
@@ -66,19 +71,28 @@ function search() {
     item.append(card);
     wrapper.append(item);
   }
-
-  movies.then((movies) => {
-    wrapper.innerHTML = "";
-    movies.forEach(movie => {
+  const movies = getMovies();
+  movies.then((arrMovies) => {
+    arrMovies.forEach((movie) => {
       sliderPush(movie);
     });
-    multiItemSlider(".slider");
-  }).catch((error) => { console.log(error) });
 
+    if (startPage === 1) {
+      slider = multiItemSlider(".slider", title, lastPage);
+    }
+  }).catch((err) => {
+    console.log(err);
+  });
+  return movies;
 }
 
 const searchButton = document.querySelector(".search__button");
 
-searchButton.addEventListener("click", search);
+searchButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  const title = document.querySelector(".search__input").value;
+  search(title, 1);
+});
 
-search();
+//search();
+//export {search};

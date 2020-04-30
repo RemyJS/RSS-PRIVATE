@@ -1,92 +1,84 @@
+//import {search} from "./search.js";
 console.log("slider init");
 const multiItemSlider = (function () {
-  return function (selector) {
+  return function (selector, movieTitle, lastPage) {
     const slider = document.querySelector(selector); // основный элемент блока
     const sliderWrapper = slider.querySelector(".slider__wrapper"); // обертка для .slider-item
     const sliderItems = slider.querySelectorAll(".slider__item"); // элементы (.slider-item)
     const sliderControls = slider.querySelectorAll(".slider__control"); // элементы управления
-    const wrapperWidth = parseFloat(getComputedStyle(sliderWrapper).width); // ширина обёртки
-    const itemWidth = parseFloat(getComputedStyle(sliderItems[0]).width); // ширина одного элемента
-    let indexIndicator = 0;
-    let maxIndexIndicator = sliderItems.length - 1;
-    let indicatorItems = 0;
+    const sliderControlLeft = slider.querySelector(".slider__control_left"); // кнопка "LEFT"
+    const sliderControlRight = slider.querySelector(".slider__control_right"); // кнопка "RIGHT"
+    // eslint-disable-next-line prefer-const
+    let wrapperWidth = parseFloat(getComputedStyle(sliderWrapper).width); // ширина обёртки
+    // eslint-disable-next-line prefer-const
+    let itemWidth = parseFloat(getComputedStyle(sliderItems[0]).width); // ширина одного элемента
     let positionLeftItem = 0; // позиция левого активного элемента
-    let transform = 0; // значение транфсофрмации .slider_wrapper
-    const step = itemWidth / wrapperWidth * 100; // величина шага (для трансформации)
+    let transform = 0; // значение трансформации .slider_wrapper
+    let step = itemWidth / wrapperWidth * 100; // величина шага (для трансформации)
+    let pageForSearch = 1;
     const items = []; // массив элементов
 
     // наполнение массива items
-    sliderItems.forEach((item, index) => {
-      items.push({ item, position: index, transform: 0 });
+    sliderItems.forEach((elem, index) => {
+      items.push({ item: elem, position: index, transform: 0 });
     });
 
     const position = {
-      getItemMin() {
-        let indexItem = 0;
-        items.forEach((item, index) => {
-          if (item.position < items[indexItem].position) {
-            indexItem = index;
-          }
-        });
-        return indexItem;
+      getMin: 0,
+      get getMax() {
+        return items.length - 1;
       },
-      getItemMax() {
-        let indexItem = 0;
-        items.forEach((item, index) => {
-          if (item.position > items[indexItem].position) {
-            indexItem = index;
-          }
-        });
-        return indexItem;
-      },
-      getMin() {
-        return items[position.getItemMin()].position;
-      },
-      getMax() {
-        return items[position.getItemMax()].position;
-      },
-    };
+    }
+    const loadExtraPage = function (newPage) {
+      console.log(`Поиск страницы ${newPage} по запросу ${movieTitle}`);
+      const movies = search(movieTitle, newPage);
 
-    const transformItem = (direction) => {
-      let nextItem = indexIndicator;
-      let currentIndicator = indexIndicator;
+      movies.then(() => {
+        const newSliderItem = document.querySelectorAll(".slider__item");
+        let push = items.length;
+        for (push; push < newSliderItem.length; push += 1) {
+          items.push({ item: newSliderItem[push], position: push, transform: 0 });
+        }
+      });
 
+    }
+    const transformItem = function (direction) {
       if (direction === "right") {
+        if ((positionLeftItem + wrapperWidth / itemWidth - 1) >= position.getMax) {
+          return;
+        }
+        if (!sliderControlLeft.classList.contains("slider__control_show")) { // first click to right
+          sliderControlLeft.classList.add("slider__control_show");
+        }
+        if (sliderControlRight.classList.contains("slider__control_show") && (positionLeftItem + wrapperWidth / itemWidth) >= position.getMax) {
+          if (pageForSearch < lastPage) {
+            pageForSearch += 1;
+            loadExtraPage(pageForSearch);
+          } else {
+            sliderControlRight.classList.remove("slider__control_show"); // hide right arrow in the last slide
+          }
+        }
         positionLeftItem += 1;
-        if ((positionLeftItem + wrapperWidth / itemWidth - 1) > position.getMax()) {
-          nextItem = position.getItemMin();
-          items[nextItem].position = position.getMax() + 1;
-          items[nextItem].transform += items.length * 100;
-          items[nextItem].item.style.transform = `translateX(${items[nextItem].transform}%)`;
-        }
         transform -= step;
-        indexIndicator += 1;
-        if (indexIndicator > maxIndexIndicator) {
-          indexIndicator = 0;
-        }
       }
       if (direction === "left") {
+        if (positionLeftItem <= position.getMin) {
+          return;
+        }
+        if (!sliderControlRight.classList.contains("slider__control_show")) {
+          sliderControlRight.classList.add("slider__control_show");
+        }
+        if (sliderControlLeft.classList.contains("slider__control_show") && positionLeftItem - 1 <= position.getMin) {
+          sliderControlLeft.classList.remove("slider__control_show");
+        }
         positionLeftItem -= 1;
-        if (positionLeftItem < position.getMin()) {
-          nextItem = position.getItemMax();
-          items[nextItem].position = position.getMin() - 1;
-          items[nextItem].transform -= items.length * 100;
-          items[nextItem].item.style.transform = `translateX(${items[nextItem].transform}%)`;
-        }
         transform += step;
-        indexIndicator -= 1;
-        if (indexIndicator < 0) {
-          indexIndicator = maxIndexIndicator;
-        }
       }
       sliderWrapper.style.transform = `translateX(${transform}%)`;
-      indicatorItems[currentIndicator].classList.remove("active");
-      indicatorItems[indexIndicator].classList.add("active");
     }
 
-
     // обработчик события click для кнопок "назад" и "вперед"
-    const controlClick = (e) => {
+    const controlClick = function (e) {
       if (e.target.classList.contains("slider__control")) {
         e.preventDefault();
         const direction = e.target.classList.contains("slider__control_right") ? "right" : "left";
@@ -94,32 +86,17 @@ const multiItemSlider = (function () {
       }
     };
 
-    const setUpListeners = () => {
-      // добавление к кнопкам "назад" и "вперед" обрботчика controlClick для событя click
+    const setUpListeners = function () {
+      sliderControls.forEach((item) => {
+        item.removeEventListener("click", controlClick);
+      });
+      // добавление к кнопкам "назад" и "вперед" обработчика controlClick для события click
       sliderControls.forEach((item) => {
         item.addEventListener("click", controlClick);
       });
-    };
-
-    // инициализация
-    const addIndicators = () => {
-      const oldIndicators = document.querySelector(".slider__indicators");
-      if (oldIndicators !== null) oldIndicators.remove();
-      const sliderIndicators = document.createElement("ul");
-      sliderIndicators.classList.add("slider__indicators");
-      for (let i = 0; i < sliderItems.length; i += 1) {
-        const sliderIndicatorsItem = document.createElement("li");
-        if (i === 0) {
-          sliderIndicatorsItem.classList.add("active");
-        }
-        sliderIndicators.appendChild(sliderIndicatorsItem);
-      }
-      slider.appendChild(sliderIndicators);
-      indicatorItems = slider.querySelectorAll(".slider__indicators > li");
     }
 
-    // добавляем индикаторы
-    addIndicators();
+    // инициализация
     setUpListeners();
 
     return {
@@ -129,10 +106,13 @@ const multiItemSlider = (function () {
       left() { // метод left
         transformItem("left");
       },
+      position,
+      items,
     };
+
   };
 }());
 
-// const slider = multiItemSlider(".slider");
+let slider;//= multiItemSlider(".slider", 0, 3);
 
-// export {multiItemSlider};
+//export {multiItemSlider};
