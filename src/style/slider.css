@@ -32,9 +32,9 @@
     justify-content: center;
     text-align: center;
     width: 40px;
-    height: 584px;
-    line-height: 584px;
-    color: gainsboro;
+    /* height: 584px;
+    line-height: 584px; */
+    color: #1f1f1f;
     display: none;
     /* background-color: #0000003d; */
 }

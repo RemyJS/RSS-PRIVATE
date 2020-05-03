@@ -23,9 +23,9 @@ function search(title, startPage) {
       lastPage = Math.ceil(moviesPromise.totalResults / 10); // get value from promise
       return moviesPromise.Search;
     }
-    const msg = document.querySelector(".search__info");
-    msg.innerText = moviesPromise.Error;
-    setTimeout(() => { msg.innerText = ""; }, 3000);
+    // const msg = document.querySelector(".search__info");
+    // msg.innerText = moviesPromise.Error;
+    // setTimeout(() => { msg.innerText = ""; }, 3000);
     throw (moviesPromise.Error);
   };
 
@@ -81,6 +81,10 @@ function search(title, startPage) {
       slider = multiItemSlider(".slider", title, lastPage);
     }
   }).catch((err) => {
+    // добавить дефолтную страницу
+    const msg = document.querySelector(".search__info");
+    msg.innerText = err;
+    setTimeout(() => { msg.innerText = ""; }, 3000);
     console.log(err);
   });
   return movies;

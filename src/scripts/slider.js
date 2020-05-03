@@ -28,7 +28,7 @@ const multiItemSlider = (function () {
       get getMax() {
         return items.length - 1;
       },
-    }
+    };
     const loadExtraPage = function (newPage) {
       console.log(`Поиск страницы ${newPage} по запросу ${movieTitle}`);
       const movies = search(movieTitle, newPage);
