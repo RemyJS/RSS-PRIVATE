@@ -1,20 +1,19 @@
-//import {search} from "./search.js";
-console.log("slider init");
+import { getMovies } from "./services/movies_service.js";
+import { getRating } from "./services/rating_service.js";
+
 let lastPage = 2; // default value
 let positionLeftItem = 0; // позиция левого активного элемента
 let transform = 0; // значение трансформации .slider_wrapper
 let pageForSearch = 1;
 let movieTitle;
-// const items = []; // массив элементов
+
 const slider = document.querySelector(".slider"); // основный элемент блока
 const sliderWrapper = slider.querySelector(".slider__wrapper"); // обертка для .slider-item
-// const sliderItems = slider.querySelectorAll(".slider__item"); // элементы (.slider-item)
 const sliderControls = slider.querySelectorAll(".slider__control"); // элементы управления
 const sliderControlLeft = slider.querySelector(".slider__control_left"); // кнопка "LEFT"
 const sliderControlRight = slider.querySelector(".slider__control_right"); // кнопка "RIGHT"
 
-function sliderPush(movie) {
-
+const sliderPush = (movie) => {
   // tag
   const item = document.createElement("div");
   const card = document.createElement("div");
@@ -51,8 +50,8 @@ function sliderPush(movie) {
   sliderWrapper.append(item);
 }
 
-function search(title, startPage) {
-
+// eslint-disable-next-line arrow-body-style
+const search = (title, startPage) => {
   return getMovies(title, startPage).then((data) => {
     lastPage = Math.ceil(data.totalResults / 10); // get value from promise
     const movies = data.Search;
@@ -63,7 +62,6 @@ function search(title, startPage) {
     if (startPage === 1) {
       pageForSearch = 1;
       sliderWrapper.style.transform = "translateX(0%)";
-      // multiItemSlider();
       setUpListeners();
     }
   }).catch((err) => {
@@ -74,7 +72,14 @@ function search(title, startPage) {
     console.log(err);
   });
 }
+
+const loadExtraPage = (newPage) => {
+  console.log(`Поиск страницы ${newPage} по запросу ${movieTitle}`);
+  search(movieTitle, newPage);
+};
+
 const initSlider = (title) => { // экспортировать
+  console.log("export initSlider");
   movieTitle = title;
   sliderControlLeft.classList.remove("slider__control_show");
   sliderWrapper.innerHTML = "";
@@ -85,7 +90,6 @@ const initSlider = (title) => { // экспортировать
 };
 
 const transformItem = (direction) => {
-
   const wrapperWidth = parseFloat(getComputedStyle(sliderWrapper).width); // ширина обёртки
   const sliderItems = slider.querySelectorAll(".slider__item");
   const itemWidth = parseFloat(getComputedStyle(sliderItems[0]).width); // ширина одного элемента
@@ -102,9 +106,6 @@ const transformItem = (direction) => {
 
   console.log(positionLeftItem, step);
   if (direction === "right") {
-    // if ((positionLeftItem + wrapperWidth / itemWidth - 1) >= position.getMax) {
-    //   return;
-    // }
     if (!sliderControlLeft.classList.contains("slider__control_show")) { // first click to right
       sliderControlLeft.classList.add("slider__control_show");
     }
@@ -121,10 +122,6 @@ const transformItem = (direction) => {
   }
 
   if (direction === "left") {
-    // if (positionLeftItem <= position.getMin) {
-    //   console.log("left <");
-    //   return;
-    // }
     if (!sliderControlRight.classList.contains("slider__control_show")) { // click left at the end of the slider
       sliderControlRight.classList.add("slider__control_show");
     }
@@ -138,7 +135,7 @@ const transformItem = (direction) => {
 };
 
 // обработчик события click для кнопок "назад" и "вперед"
-const controlClick = function (e) {
+const controlClick = (e) => {
   if (e.target.classList.contains("slider__control")) {
     e.preventDefault();
     const direction = e.target.classList.contains("slider__control_right") ? "right" : "left";
@@ -148,37 +145,14 @@ const controlClick = function (e) {
 
 const setUpListeners = () => {
   sliderControls.forEach((item) => {
+    // delete old eventListener
     item.removeEventListener("click", controlClick);
   });
   // добавление к кнопкам "назад" и "вперед" обработчика controlClick для события click
   sliderControls.forEach((item) => {
     item.addEventListener("click", controlClick);
   });
-}
-
-const loadExtraPage = function (newPage) {
-  console.log(`Поиск страницы ${newPage} по запросу ${movieTitle}`);
-  search(movieTitle, newPage);
-
-  // movies.then(() => {
-  //   // const newSliderItem = document.querySelectorAll(".slider__item");
-  //   // let push = items.length;
-  //   // for (push; push < newSliderItem.length; push += 1) {
-  //   //   items.push({ item: newSliderItem[push], position: push, transform: 0 });
-  //   // }
-  // });
-
 };
 
-// const multiItemSlider = () => {
-//   // const sliderItems = slider.querySelectorAll(".slider__item");
-//   // наполнение массива items
-//   // sliderItems.forEach((elem, index) => {
-//   //   items.push({ item: elem, position: index, transform: 0 });
-//   // });
-//   // инициализация
-//   setUpListeners();
 
-// };
-
-//export {multiItemSlider};
+export { initSlider };

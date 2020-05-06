@@ -1,6 +1,8 @@
-//import { multiItemSlider } from "./slider.js";
-console.log("search init");
+import { initSlider } from "./slider.js";
+import { getEnglishTitle } from "./services/translate_service.js";
+
 function initSearch() {
+  console.log("initSearh export");
   const searchButton = document.querySelector(".search__button");
 
   searchButton.addEventListener("click", (event) => {
@@ -14,14 +16,11 @@ function initSearch() {
         const translate = promise.text[0];
         searchInput.value = translate;
         initSlider(translate);
-        // return title
       });
     } else {
       initSlider(title);
-      // return title
     }
   });
 }
 
-//search();
-//export {search};
+export { initSearch }
