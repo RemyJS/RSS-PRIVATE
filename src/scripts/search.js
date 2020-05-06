@@ -9,8 +9,7 @@ function initSearch() {
     event.preventDefault();
     const searchInput = document.querySelector(".search__input");
     const title = searchInput.value;
-
-    if (title.match(/[А-я]/g)) {
+    if (title.match(/[А-я]/g)) { // if title has russian letters
       const titleEng = getEnglishTitle(title);
       titleEng.then((promise) => {
         const translate = promise.text[0];

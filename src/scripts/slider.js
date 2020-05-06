@@ -48,7 +48,7 @@ const sliderPush = (movie) => {
   card.append(cardRating);
   item.append(card);
   sliderWrapper.append(item);
-}
+};
 
 // eslint-disable-next-line arrow-body-style
 const search = (title, startPage) => {

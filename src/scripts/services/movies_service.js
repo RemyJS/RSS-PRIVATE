@@ -1,4 +1,6 @@
 const getMovies = async (title, page) => {
+  if (title.trim() === "") throw new Error("enter the name of the movie");
+
   const url = `https://www.omdbapi.com/?s=${title}&type=movie&page=${page}&apikey=3beb9416`;
   const res = await fetch(url);
   const data = await res.json();
@@ -6,7 +8,6 @@ const getMovies = async (title, page) => {
   if (data.Response === "True") {
     return data; // прежде data.Search
   }
-
   throw (data.Error);
 };
 export { getMovies }

@@ -31,11 +31,8 @@
     justify-content: center;
     text-align: center;
     width: 40px;
-    /* height: 584px;
-    line-height: 584px; */
     color: #1f1f1f;
     display: none;
-    /* background-color: #0000003d; */
 }
 
 .slider__control_show {
@@ -67,8 +64,10 @@
     display: inline-flex;
     overflow: hidden;
     color: black;
-    height: 50px;
-    align-items: center;
+    height: 60px;
+    align-items: flex-end;
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
 .card__poster {

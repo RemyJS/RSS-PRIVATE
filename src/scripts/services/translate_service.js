@@ -8,8 +8,3 @@ async function getEnglishTitle(title) {
   return data;
 }
 export { getEnglishTitle }
-// const promise = getEnglishTitle("Человек паук");
-
-// promise.then((value) =>{
-//   console.log(value.text[0]);
-// })
