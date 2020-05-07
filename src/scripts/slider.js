@@ -1,5 +1,6 @@
 import { getMovies } from "./services/movies_service.js";
 import { getRating } from "./services/rating_service.js";
+import { showMessage } from "./notification.js";
 
 let lastPage = 2; // default value
 let positionLeftItem = 0; // позиция левого активного элемента
@@ -59,17 +60,22 @@ const search = (title, startPage) => {
       sliderPush(movie);
     });
 
+    if (data.totalResults < 5) {
+      sliderControlRight.classList.remove("slider__control_show");
+    } else {
+      sliderControlRight.classList.add("slider__control_show");
+    }
     if (startPage === 1) {
       pageForSearch = 1;
       sliderWrapper.style.transform = "translateX(0%)";
       setUpListeners();
     }
   }).catch((err) => {
-    // добавить дефолтную страницу
-    const msg = document.querySelector(".search__info");
-    msg.innerText = err;
-    setTimeout(() => { msg.innerText = ""; }, 3000);
-    console.log(err);
+    if (err === "Movie not found!") {
+      showMessage(`No resualt for ${title}`);
+    } else {
+      showMessage(err);
+    }
   });
 }
 
@@ -104,7 +110,7 @@ const transformItem = (direction) => {
     },
   };
 
-  console.log(positionLeftItem, step);
+  // console.log(positionLeftItem, step);
   if (direction === "right") {
     if (!sliderControlLeft.classList.contains("slider__control_show")) { // first click to right
       sliderControlLeft.classList.add("slider__control_show");

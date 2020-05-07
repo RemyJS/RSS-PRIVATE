@@ -1,5 +1,6 @@
 import { initSlider } from "./slider.js";
 import { getEnglishTitle } from "./services/translate_service.js";
+import { showMessage } from "./notification.js";
 
 function initSearch() {
   console.log("initSearh export");
@@ -14,6 +15,7 @@ function initSearch() {
       titleEng.then((promise) => {
         const translate = promise.text[0];
         searchInput.value = translate;
+        showMessage(`Showing results for ${translate}`);
         initSlider(translate);
       });
     } else {
