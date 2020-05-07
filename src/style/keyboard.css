@@ -1,0 +1,63 @@
+.keyboard {
+    padding: 5px;
+    padding-left: 0;
+    padding-bottom: 0;
+    background: #eceeef;
+    border-bottom: 4px outset #c3c5c7;
+    border-right: 2px outset #c3c5c7;
+    border-radius: 5px;
+    width: max-content;
+    position: fixed;
+    right: 1vw;
+    bottom: 1vw;
+    opacity: 0.9;
+}
+.row {
+    display: flex;
+    justify-content: start;
+    margin-bottom: 2px;
+}
+.key{
+    min-width: 40px;
+    height: 40px;
+    /* padding: 0 5px; */
+    margin-left: 6px;
+    font-weight: 500;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    background: #b1b1b1;
+    border-bottom: 3px outset #d8dadc;
+    border-right: 2px outset #d8dadc;
+    border-radius: 3px;
+    cursor: pointer;
+    user-select: none;
+    transition: border-radius 0.3s, background-color 0.3s;
+}
+.key:hover {
+    background:#1f1f1f;
+}
+.key:active {
+    background: #f60;
+    border-radius: 40%;
+}
+.key__down {
+    background: #f60;
+    border-radius: 40%;
+}
+.hidden {
+    display: none;
+}
+/* big key */
+.Backspace,.ShiftLeft,.CapsLock {
+    width: 100px;
+}
+.ShiftRight, .Enter {
+    width: 86px;
+}
+.Space {
+    width: 340px;
+}
+.Tab {
+    width: 50px;
+}
