@@ -5,10 +5,10 @@ import { showMessage } from "./notification.js";
 function initSearch() {
   console.log("initSearh export");
   const searchButton = document.querySelector(".search__button");
-
+  const searchClear = document.querySelector(".search__clear");
+  const searchInput = document.querySelector(".search__input");
   searchButton.addEventListener("click", (event) => {
     event.preventDefault();
-    const searchInput = document.querySelector(".search__input");
     const title = searchInput.value;
     if (title.match(/[А-я]/g)) { // if title has russian letters
       const titleEng = getEnglishTitle(title);
@@ -21,6 +21,11 @@ function initSearch() {
     } else {
       initSlider(title);
     }
+  });
+
+  searchClear.addEventListener("click", () => {
+    searchInput.value = "";
+    // searchInput.focus();
   });
 }
 
