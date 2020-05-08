@@ -13,7 +13,7 @@ const sliderWrapper = slider.querySelector(".slider__wrapper"); // обертк�
 const sliderControls = slider.querySelectorAll(".slider__control"); // элементы управления
 const sliderControlLeft = slider.querySelector(".slider__control_left"); // кнопка "LEFT"
 const sliderControlRight = slider.querySelector(".slider__control_right"); // кнопка "RIGHT"
-
+const loadingIndicator = document.querySelector(".search__loading");
 const sliderPush = (movie) => {
   // tag
   const item = document.createElement("div");
@@ -53,6 +53,7 @@ const sliderPush = (movie) => {
 
 // eslint-disable-next-line arrow-body-style
 const search = (title, startPage) => {
+  loadingIndicator.classList.remove("hidden");
   return getMovies(title, startPage).then((data) => {
     lastPage = Math.ceil(data.totalResults / 10); // get value from promise
     const movies = data.Search;
@@ -76,8 +77,10 @@ const search = (title, startPage) => {
     } else {
       showMessage(err);
     }
+  }).finally(() => {
+    setTimeout(() => { loadingIndicator.classList.add("hidden"); }, 500);
   });
-}
+};
 
 const loadExtraPage = (newPage) => {
   console.log(`Поиск страницы ${newPage} по запросу ${movieTitle}`);

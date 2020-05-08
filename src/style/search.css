@@ -81,6 +81,10 @@
     color: brown;
 }
 
+.search__loading {
+    width: 30px;
+}
+
 @media (max-width: 440px) {
     .search {
         height: 50px;
