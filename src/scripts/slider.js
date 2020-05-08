@@ -34,19 +34,39 @@ const sliderPush = (movie) => {
   // value
   cardTitle.innerText = movie.Title;
   cardTitle.href = `https://www.imdb.com/title/${movie.imdbID}/`;
-  if (movie.Poster !== "N/A") cardPoster.style.backgroundImage = `url(${movie.Poster})`;
+  if (movie.Poster !== "N/A") {
+    cardPoster.style.backgroundImage = `url(${movie.Poster})`;
+  } else {
+    cardPoster.style.opacity = "0.85";
+  }
   cardYear.innerText = movie.Year;
   getRating(movie.imdbID).then((r) => {
     imdb.innerText = r.Ratings[0].Value;
+    const description = document.createElement("div");
+    const country = document.createElement("div");
+    const director = document.createElement("div");
+    const runtime = document.createElement("div");
+    const rated = document.createElement("div");
+
+    description.className = "card__description";
+    country.className = "card__description__country";
+    director.className = "card__description__director";
+    runtime.className = "card__description__runtime";
+    rated.className = "card__description__rated";
+
+    country.innerText = r.Country;
+    director.innerText = (r.Director !== "N/A") ? r.Director : "";
+    runtime.innerText = (r.Runtime !== "N/A") ? r.Runtime : "";
+    rated.innerText = (r.Rated !== "N/A") ? `Rated ${r.Rated}` : "";
+
+    description.append(country, director, runtime, rated);
+    cardPoster.append(description);
   }).catch(() => {
     cardRating.innerText = "no ratings";
   });
   // append
   cardRating.append(imdb);
-  card.append(cardTitle);
-  card.append(cardPoster);
-  card.append(cardYear);
-  card.append(cardRating);
+  card.append(cardTitle, cardPoster, cardYear, cardRating);
   item.append(card);
   sliderWrapper.append(item);
 };

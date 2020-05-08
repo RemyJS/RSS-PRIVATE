@@ -191,4 +191,4 @@ function initKeyboard() {
     keyboard.classList.toggle("hidden");
   });
 }
-export { initKeyboard }
+export { initKeyboard };
