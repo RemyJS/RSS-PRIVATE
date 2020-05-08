@@ -2,14 +2,12 @@
     padding: 5px;
     padding-left: 0;
     padding-bottom: 0;
-    background: #eceeef;
-    border-bottom: 4px outset #c3c5c7;
-    border-right: 2px outset #c3c5c7;
+    background: #6e6e6e;
     border-radius: 5px;
     width: max-content;
     position: fixed;
     right: 1vw;
-    bottom: 1vw;
+    bottom: 2vh;
     opacity: 0.9;
 }
 .row {
@@ -49,14 +47,14 @@
     display: none;
 }
 /* big key */
-.Backspace,.ShiftLeft,.CapsLock {
+.Backspace,.ShiftLeft,.CapsLock,.MetaLeft {
     width: 100px;
 }
 .ShiftRight, .Enter {
     width: 86px;
 }
 .Space {
-    width: 340px;
+    width: 327px;
 }
 .Tab {
     width: 50px;

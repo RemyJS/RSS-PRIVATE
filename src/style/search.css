@@ -64,7 +64,7 @@
     font-size: 32px;
     font-weight: bold;
 }
-.search__clear:hover {
+.search__clear:hover, .search__keyboard:hover {
     color: #FF512F;
 }
 .search__keyboard {
@@ -76,6 +76,7 @@
     font-size: 36px;
     font-weight: bold;
 }
+
 .search__info {
     color: brown;
 }
