@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { getMovies } from "./services/movies_service.js";
 import { getRating } from "./services/rating_service.js";
 import { showMessage } from "./notification.js";
@@ -81,7 +82,7 @@ const search = (title, startPage) => {
       sliderPush(movie);
     });
 
-    if (data.totalResults < 5) {
+    if (data.totalResults < 2) {
       sliderControlRight.classList.remove("slider__control_show");
     } else {
       sliderControlRight.classList.add("slider__control_show");
@@ -89,11 +90,12 @@ const search = (title, startPage) => {
     if (startPage === 1) {
       pageForSearch = 1;
       sliderWrapper.style.transform = "translateX(0%)";
+      // eslint-disable-next-line no-use-before-define
       setUpListeners();
     }
   }).catch((err) => {
     if (err === "Movie not found!") {
-      showMessage(`No resualt for ${title}`);
+      showMessage(`No results were found for ${title}`);
     } else {
       showMessage(err);
     }
@@ -103,12 +105,12 @@ const search = (title, startPage) => {
 };
 
 const loadExtraPage = (newPage) => {
-  console.log(`Поиск страницы ${newPage} по запросу ${movieTitle}`);
+  // console.log(`Поиск страницы ${newPage} по запросу ${movieTitle}`);
   search(movieTitle, newPage);
 };
 
 const initSlider = (title) => { // экспортировать
-  console.log("export initSlider");
+  // console.log("export initSlider");
   movieTitle = title;
   sliderControlLeft.classList.remove("slider__control_show");
   sliderWrapper.innerHTML = "";
@@ -184,4 +186,5 @@ const setUpListeners = () => {
 };
 
 
+// eslint-disable-next-line import/prefer-default-export
 export { initSlider };

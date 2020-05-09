@@ -85,6 +85,30 @@
     width: 30px;
 }
 
+@media (max-width: 1500px) {
+    .search__clear{
+        right: 13vw;
+    }
+    .search__keyboard {
+        right: 12vw;
+    }
+}
+
+@media (max-width: 1218px) {
+    .search__keyboard{
+        display: none;
+    }
+    .search__clear{
+        right: 9vw;
+    }
+}
+
+@media (max-width: 756px) {
+    .search__clear{
+        right: 11vw;
+    }
+}
+
 @media (max-width: 440px) {
     .search {
         height: 50px;

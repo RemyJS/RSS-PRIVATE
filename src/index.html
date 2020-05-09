@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./style/style.css">
+    <!-- <link rel="stylesheet" href="./style/style.css"> -->
     <title>Movie search</title>
 </head>
 
@@ -15,34 +15,35 @@
     </header>
     <main>
         <form class="search">
-            <input class="search__input" type="text" placeholder="Search movie"autofocus/>
+            <input class="search__input" type="text" placeholder="Search movie" autofocus />
             <span class="search__clear">&#215;</span>
             <span class="search__keyboard">&#128430;</span>
-            <button class="search__button" >Search</button>
+            <button class="search__button">Search</button>
             <h3 class="search__info"></h3>
             <img class="search__loading hidden" src="../assets/img/loading.svg" alt="loading">
         </form>
         <section class="slider">
             <div class="slider__wrapper">
-                <div class="slider__item">
-                    <div class="card">
-                        <a class ="card__title"href="https://www.imdb.com/title/tt0180093/">requem for dream</a>
-                        <div class="card__poster">
-                            <div class="card__description">
-                                <div class="card__description__county">USA</div>
-                                <div class="card__description__genre">Action, Crime, Sci-Fi, Thriller</div>
-                                <div class="card__description__director">Director: Paul Verhoeven</div>
-                                <div class="card__description__runtime">102 min</div>
-                                <div class="card__description__rated">Rated R</div>
-                            </div>
-                        </div>
-                        <div class="card__year">2000</div>
-                        <div class="card__rating"><span class="card__rating_imdb">9.0</span></div>
-                    </div>
-                </div>
-                <div class="slider__item">2</div>
-                <div class="slider__item">3</div>
-                <div class="slider__item">4</div>
+                <ul>
+                    <p>
+                        <b>Movie Search </b>
+                        Одностраничное приложение, отображающее информацию о фильмах по запросу пользователя.
+                        Для получения информации используется OMDb RESTful API.
+                    </p>
+                    <br>
+                    <li>когда пользователь открывает приложение, на странице отображается поле поиска и карточки с
+                        информацией о фильмах по произвольному, указанному разработчиком запросу
+                        поиск осуществляется по полному названию фильма или по части названия
+                    </li>
+                    <li>если пользователь вводит корректный поисковый запрос, по которому API возвращает результат,
+                        информация на карточках с фильмами обновляется</li>
+                    <li>при выполнении поискового запроса происходит загрузка первой страницы результата поиска из API
+                    </li>
+                    <li>во время выполнения запроса на поиск на странице присутствует индикация процесса загрузки.</li>
+                    <li>При наведении на карточку, или клике с мобильных устройств появляеться дополнительное описание фильма</li>
+                    <li>Приложение выводит только фильмы и короткометражки</li>
+                    <li>Реализована экранная клавиатура</li>
+                </ul>
             </div>
             <!-- control -->
             <a class="slider__control slider__control_left">⮜</a>
@@ -57,6 +58,6 @@
         <h3><a class="footer__link" href="https://github.com/RemyJS">RemyJS</a></h3>
     </footer>
 </body>
-<script type="module" src="./scripts/app.js"></script>
-<!-- <script src="./scripts/keyboard.js"></script> -->
+<!-- <script type="module" src="./scripts/app.js"></script> -->
+
 </html>

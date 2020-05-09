@@ -1,9 +1,10 @@
+/* eslint-disable import/extensions */
 import { initSlider } from "./slider.js";
 import { getEnglishTitle } from "./services/translate_service.js";
 import { showMessage } from "./notification.js";
 
 function initSearch() {
-  console.log("initSearh export");
+  // console.log("initSearh export");
   const searchButton = document.querySelector(".search__button");
   const searchClear = document.querySelector(".search__clear");
   const searchInput = document.querySelector(".search__input");
@@ -29,4 +30,5 @@ function initSearch() {
   });
 }
 
-export { initSearch }
+// eslint-disable-next-line import/prefer-default-export
+export { initSearch };

@@ -20,8 +20,11 @@ header, footer {
 .header__title {
     margin: 0 auto;
     width: fit-content;
+    cursor: none;
 }
-
+.header__title:hover {
+    color:#f60
+}
 main {
     height: 78.1vh;
     background: rgb(245, 255, 185);
@@ -47,7 +50,7 @@ main::after {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 106px;
+    height: calc( 22vh - 100px);
 }
 
 .footer__link {
@@ -57,4 +60,18 @@ main::after {
 
 .footer__link:hover {
     color: #f60;
+}
+
+@media (max-width: 440px) {
+    .header {
+        padding:0;
+        display: flex;
+        height: 10vh;
+    }
+    main {
+        height: 80vh;
+    }
+    .footer {
+        height: 10vh;
+    }
 }
