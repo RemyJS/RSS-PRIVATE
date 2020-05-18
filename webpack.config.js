@@ -4,22 +4,22 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: './src/scripts/app.js',
+  entry: ["@babel/polyfill","./src/scripts/app.js"],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template:"src/index.html"
+      template: "src/index.html"
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'style.css',
     })
   ],
-  module : {
-    rules : [
+  module: {
+    rules: [
       {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
@@ -35,7 +35,19 @@ module.exports = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader','sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env'
+            ],
+          }
+        },
       },
     ],
   },
