@@ -1,13 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fancy Weather</title>
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
     <h1>Fancy Weather</h1>
+    <div class="control">
+        <div class="control__setting">
+            <button>reset</button>
+            <button>eng</button>
+            <button>ru</button>
+            <button>bel</button>
+            <button>F</button>
+            <button>C</button>
+        </div>
+        <form action="GET">
+            <input type="text">
+            <button>search</button>
+        </form>
+    </div>
+
+    <div class="place">ПРАГА, ЧЕХИЯ</div>
+    <div class="time">Вт 19 Май 23:08</div>
+
+    <div class="weather">
+        <div class="weather__temp">16</div>
+        <div class="weather__ico"></div>
+        <div class="weather__desctription">
+            <ul>
+                <li>ЯСНО</li>
+                <li>ОЩУЩАЕТСЯ КАК: 16°</li>
+                <li>ВЕТЕР: 2 M/S</li>
+                <li>ВЛАЖНОСТЬ: 66%</li>
+            </ul>
+        </div>
+        <div class="weather__day weather__day_yesterday">
+            СРЕДА 14°
+        </div>
+        <div class="weather__day weather__day_today">
+            Четверг 15°
+        </div>
+        <div class="weather__day weather__day_tomorrow">
+            Пятница 16°
+        </div>
+    </div>
+
+    <div class="map">
+        <div class="map__yandex">
+
+        </div>
+        <div class="map__cord">
+            <p>Широта: 53° 51" 8'</p>
+            <p>Долгота: 27° 26" 32'</p>
+        </div>
+    </div>
 </body>
-<!-- <script src="./scripts/app.js"></script> -->
+
 </html>

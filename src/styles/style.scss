@@ -1,7 +1,30 @@
-$color: #f36;
-
+$color: #fff;
+$sunsize: 150px;
+$wday:50px;
 body {
     h1 {
         color: $color;
     }
+}
+.weather__ico{
+    background-image: url('../../assets/img/sun.png');
+    background-repeat: no-repeat;
+    background-size: $sunsize;
+    height: $sunsize;
+    width: $sunsize;
+}
+.weather__day{
+    background-image: url('../../assets/img/sun.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: $wday;
+    height: $wday;
+    width: 150px;
+}
+.map__yandex{    
+    background-image: url('../../assets/img/yandexmap.jpg');
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: 300px;
+    height: 300px;
 }
