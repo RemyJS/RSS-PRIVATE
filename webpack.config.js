@@ -1,24 +1,25 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 // const devmode = process.env.NODE_ENV === 'development';
 
 module.exports = {
   devtool: 'source-map',
-  entry: ["@babel/polyfill", "./src/scripts/app.js"],
+  // entry: ['@babel/polyfill', './src/scripts/app.js'],
+  entry: './src/scripts/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html"
+      template: 'src/index.html',
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'style.css',
-    })
+    }),
   ],
   module: {
     rules: [
@@ -27,11 +28,11 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(png|svg|jpe?g|gif)$/,
+        test: /\.(png|svg|jpe?g|gif|ttf|woff|woff2)$/,
         use: {
-          loader: "file-loader",
+          loader: 'file-loader',
           options: {
-            outputPath: "assets/img",
+            outputPath: 'assets/img',
           },
         },
       },
@@ -39,24 +40,24 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-      },
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env'
-            ],
-          }
-        },
-      },
+      // {
+      //   enforce: 'pre',
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: 'eslint-loader',
+      // },
+      // {
+      //   test: /\.js$/,
+      //   exclude: /node_modules/,
+      //   loader: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: [
+      //         '@babel/preset-env',
+      //       ],
+      //     },
+      //   },
+      // },
     ],
   },
   devServer: {

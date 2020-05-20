@@ -1,30 +1,137 @@
+@import "~normalize.css";
+@font-face {
+    font-family: "franx";
+    src: url("../../assets/fonts/franx.ttf");
+}
 $color: #fff;
 $sunsize: 150px;
-$wday:50px;
+$wday: 50px;
+
+*,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+html,
+body,
+.grid-container {
+    height: 100%;
+}
+
 body {
-    h1 {
-        color: $color;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../assets/img/59.jpg");
+    background-repeat: no-repeat;
+    color: white;
+    font-size: 2.5vmin;
+    font-family: "franx";
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas:
+        "control control control"
+        "weather weather map"
+        "weather weather map"
+        "weather weather map";
+}
+
+.control {
+    grid-area: control;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 5vh 0;
+}
+.control__setting {
+    button {
+        width: 50px;
+        height: 30px;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+        background-color: gainsboro;
     }
 }
-.weather__ico{
-    background-image: url('../../assets/img/sun.png');
-    background-repeat: no-repeat;
-    background-size: $sunsize;
-    height: $sunsize;
-    width: $sunsize;
+.weather {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas:
+        "weather__header weather__header weather__header"
+        "weather__temp weather__temp weather__ico"
+        "weather__temp weather__temp weather__description"
+        "weather__days weather__days weather__days";
+    grid-area: weather;
 }
-.weather__day{
-    background-image: url('../../assets/img/sun.png');
+
+.weather__header {
+    grid-area: weather__header;
+    display: flex;
+    justify-content: center;
+}
+.weather__header__wrap {
+    text-align: center;
+}
+.weather__temp {
+    grid-area: weather__temp;
+    font-size: 10em;
+    text-align: center;
+}
+
+.weather__ico {
+    grid-area: weather__ico;
+    background-image: url("../../assets/img/sun.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.weather__description {
+    grid-area: weather__description;
+}
+
+.weather__days {
+    grid-area: weather__days;
+    display: flex;
+    justify-content: space-around;
+}
+.weather__day {
+    background-image: url("../../assets/img/sun.png");
     background-repeat: no-repeat;
     background-position: right;
-    background-size: $wday;
+    background-size: contain;
+    text-transform: uppercase;
     height: $wday;
-    width: 150px;
+    width: 20%;
 }
-.map__yandex{    
-    background-image: url('../../assets/img/yandexmap.jpg');
+
+.map {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1px 1px;
+    grid-template-areas:
+        "map__yandex map__yandex"
+        ". map__cord";
+    grid-area: map;
+}
+
+.map__yandex {
+    grid-area: map__yandex;
+    background-image: url("../../assets/img/yandexmap.jpg");
     background-repeat: no-repeat;
-    background-size: auto;
-    width: 300px;
-    height: 300px;
+    background-size: contain;
+}
+
+.map__cord {
+    grid-area: map__cord;
 }
