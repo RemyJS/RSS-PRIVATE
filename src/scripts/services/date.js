@@ -8,6 +8,10 @@ const day = {
   ru: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг ', 'пятница', 'суббота'],
   en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', ' Thursday ', 'Friday', 'Saturday'],
   be: ['нядзеля', 'Панядзелак', 'аўторак', 'серада', 'чацвер', 'Пятніца', 'субота'],
+};
+const lessThenTen = (n) => {
+  if (n < 10) return `0${n}`;
+  return n;
 }
 const renderDate = (date, time) => {
   const timerId = setInterval(() => {
@@ -18,15 +22,12 @@ const renderDate = (date, time) => {
     const monthname = month[lang][m];
     const dayname = day[lang][d];
 
-    let h = now.getHours();
-    // eslint-disable-next-line no-unused-expressions
-    (h < 10) ? h = `0${h}` : h;
-    let min = now.getMinutes();
-    (min < 10) ? min = `0${min}` : min;
-    let sec = now.getSeconds();
-    (sec < 10) ? sec = `0${sec}` : sec;
+    const h = lessThenTen(now.getHours());
+    const min = lessThenTen(now.getMinutes());
+    const sec = lessThenTen(now.getSeconds());
     // eslint-disable-next-line no-param-reassign
     date.innerText = `${dayname} ${now.getDate()} ${monthname}`;
+    // eslint-disable-next-line no-param-reassign
     time.innerText = `${h}:${min}:${sec}`;
   }, 1000);
   return timerId;
