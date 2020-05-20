@@ -12,7 +12,7 @@ const day = {
 const lessThenTen = (n) => {
   if (n < 10) return `0${n}`;
   return n;
-}
+};
 const renderDate = (date, time) => {
   const timerId = setInterval(() => {
     const lang = localStorage.getItem('lang');

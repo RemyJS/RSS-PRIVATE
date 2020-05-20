@@ -2,6 +2,8 @@ import '../styles/style.css';
 import '../styles/style.scss';
 
 import renderDate from './services/date';
+import getLocation from './services/geolocation';
+import changeBackground from './services/background';
 
 const wdate = document.querySelector('.weather__header__date');
 const wtime = document.querySelector('.weather__header__time');
@@ -12,5 +14,7 @@ btnlang.forEach((btn) => {
   btn.addEventListener('click', () => {
     localStorage.setItem('lang', btn.innerText);
   });
-})
+});
 const timerid = renderDate(wdate, wtime);
+getLocation();
+changeBackground();
