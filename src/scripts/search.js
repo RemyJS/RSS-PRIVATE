@@ -26,5 +26,6 @@ function initSearch() {
     searchInput.value = "";
   });
 }
-
+// searh default
+initSlider("dream");
 export default initSearch;

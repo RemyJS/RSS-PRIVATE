@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 // const devmode = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  devtool: "source-map",
+  // devtool: "source-map",
   // entry: {
   //   script: "./src/scripts/app.js",
   // },
