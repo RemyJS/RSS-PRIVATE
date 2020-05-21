@@ -1,6 +1,7 @@
 const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+// const devmode = process.env.NODE_ENV === 'development';
 
 module.exports = {
   devtool: "source-map",
@@ -61,4 +62,7 @@ module.exports = {
       template: "src/index.html",
     }),
   ],
+  devServer: {
+    port: 6500,
+  },
 };

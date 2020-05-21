@@ -1,10 +1,8 @@
-/* eslint-disable import/extensions */
-import { initSlider } from "./slider.js";
-import { getEnglishTitle } from "./services/translate_service.js";
-import { showMessage } from "./notification.js";
+import { initSlider } from "./slider";
+import { getEnglishTitle } from "./services/translate_service";
+import { showMessage } from "./notification";
 
 function initSearch() {
-  // console.log("initSearh export");
   const searchButton = document.querySelector(".search__button");
   const searchClear = document.querySelector(".search__clear");
   const searchInput = document.querySelector(".search__input");

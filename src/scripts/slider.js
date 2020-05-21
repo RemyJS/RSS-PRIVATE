@@ -1,7 +1,6 @@
-/* eslint-disable import/extensions */
-import { getMovies } from "./services/movies_service.js";
-import { getRating } from "./services/rating_service.js";
-import { showMessage } from "./notification.js";
+import { getMovies } from "./services/movies_service";
+import { getRating } from "./services/rating_service";
+import { showMessage } from "./notification";
 
 let lastPage = 2; // default value
 let positionLeftItem = 0; // позиция левого активного элемента
@@ -35,6 +34,7 @@ const sliderPush = (movie) => {
   // value
   cardTitle.innerText = movie.Title;
   cardTitle.href = `https://www.imdb.com/title/${movie.imdbID}/`;
+  cardTitle.target = "_blank";
   if (movie.Poster !== "N/A") {
     cardPoster.style.backgroundImage = `url(${movie.Poster})`;
   } else {
@@ -72,7 +72,6 @@ const sliderPush = (movie) => {
   sliderWrapper.append(item);
 };
 
-// eslint-disable-next-line arrow-body-style
 const search = (title, startPage) => {
   loadingIndicator.classList.remove("hidden");
   return getMovies(title, startPage).then((data) => {
@@ -91,7 +90,7 @@ const search = (title, startPage) => {
       pageForSearch = 1;
       sliderWrapper.style.transform = "translateX(0%)";
       // eslint-disable-next-line no-use-before-define
-      setUpListeners();
+      setUpListeners();// i don't know how fix it, code in the loop((
     }
   }).catch((err) => {
     if (err === "Movie not found!") {
@@ -103,14 +102,11 @@ const search = (title, startPage) => {
     setTimeout(() => { loadingIndicator.classList.add("hidden"); }, 500);
   });
 };
-
 const loadExtraPage = (newPage) => {
-  // console.log(`Поиск страницы ${newPage} по запросу ${movieTitle}`);
   search(movieTitle, newPage);
 };
 
 const initSlider = (title) => { // экспортировать
-  // console.log("export initSlider");
   movieTitle = title;
   sliderControlLeft.classList.remove("slider__control_show");
   sliderWrapper.innerHTML = "";
@@ -124,8 +120,7 @@ const transformItem = (direction) => {
   const wrapperWidth = parseFloat(getComputedStyle(sliderWrapper).width); // ширина обёртки
   const sliderItems = slider.querySelectorAll(".slider__item");
   const itemWidth = parseFloat(getComputedStyle(sliderItems[0]).width); // ширина одного элемента
-  // eslint-disable-next-line no-mixed-operators
-  const step = itemWidth / wrapperWidth * 100; // величина шага (для трансформации)
+  const step = (itemWidth / wrapperWidth) * 100; // величина шага (для трансформации)
 
 
   const position = {
@@ -135,7 +130,6 @@ const transformItem = (direction) => {
     },
   };
 
-  // console.log(positionLeftItem, step);
   if (direction === "right") {
     if (!sliderControlLeft.classList.contains("slider__control_show")) { // first click to right
       sliderControlLeft.classList.add("slider__control_show");
@@ -184,7 +178,6 @@ const setUpListeners = () => {
     item.addEventListener("click", controlClick);
   });
 };
-
 
 // eslint-disable-next-line import/prefer-default-export
 export { initSlider };
