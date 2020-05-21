@@ -4,4 +4,4 @@ const showMessage = (text) => {
   setTimeout(() => { msg.innerText = ""; }, 3000);
 };
 
-export { showMessage };
+export default showMessage;

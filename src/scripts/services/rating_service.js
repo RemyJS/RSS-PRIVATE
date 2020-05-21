@@ -5,4 +5,4 @@ const getRating = async (id) => {
   return data;
 };
 
-export { getRating };
+export default getRating;

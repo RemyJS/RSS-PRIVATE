@@ -10,4 +10,4 @@ const getMovies = async (title, page) => {
   }
   throw (data.Error);
 };
-export { getMovies }
+export default getMovies;

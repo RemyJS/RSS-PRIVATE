@@ -1,6 +1,6 @@
-import { initSlider } from "./slider";
-import { getEnglishTitle } from "./services/translate_service";
-import { showMessage } from "./notification";
+import initSlider from "./slider";
+import getEnglishTitle from "./services/translate_service";
+import showMessage from "./notification";
 
 function initSearch() {
   const searchButton = document.querySelector(".search__button");
@@ -11,8 +11,8 @@ function initSearch() {
     const title = searchInput.value;
     if (title.match(/[А-я]/g)) { // if title has russian letters
       const titleEng = getEnglishTitle(title);
-      titleEng.then((promise) => {
-        const translate = promise.text[0];
+      titleEng.then((data) => {
+        const translate = data.text[0];
         searchInput.value = translate;
         showMessage(`Showing results for ${translate}`);
         initSlider(translate);
@@ -24,9 +24,7 @@ function initSearch() {
 
   searchClear.addEventListener("click", () => {
     searchInput.value = "";
-    // searchInput.focus();
   });
 }
 
-// eslint-disable-next-line import/prefer-default-export
-export { initSearch };
+export default initSearch;
