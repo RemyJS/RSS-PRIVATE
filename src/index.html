@@ -16,50 +16,74 @@
             <div class="control__setting">
                 <div class="control__setting_temp">
                     <button>reset</button>
-                    <button>F</button>
-                    <button>C</button>
+                    <button data-temp="I">F</button>
+                    <button data-temp="M">C</button>
                 </div>
                 <div class="control__setting_lang">
-                    <button>en</button>
-                    <button>ru</button>
-                    <button>be</button>
+                    <button data-setlang="en">en</button>
+                    <button data-setlang="ru">ru</button>
+                    <button data-setlang="be">be</button>
                 </div>
             </div>
-            <form action="GET">
-                <input type="text">
-                <button>search</button>
+            <form class="search">
+                <input class="search__input" type="text" pattern="[A-я].{2,}" value="минск">
+                <button class="search__button" data-i18n="search">search</button>
             </form>
         </div>
 
         <div class="weather">
             <div class="weather__header">
                 <div class="weather__header__wrap">
-                    <div class="weather__header__place">ПРАГА, ЧЕХИЯ</div>
+                    <div class="weather__header__place">МИНСК, БЕЛОРУССИЯ</div>
                     <div class="weather__header__date">Вт 19 Май</div>
                     <div class="weather__header__time">17:23:12</div>
                 </div>
             </div>
-            <div class="weather__temp">
-                16
+
+            <div class="weather__temp_m">
+                <div class="weather__day_temp">14</div>
             </div>
-            <div class="weather__ico"></div>
+
+            <div class="weather__ico_m">
+                <div class="weather__ico"></div>
+            </div>
             <div class="weather__desctription">
                 <ul>
-                    <li>ЯСНО</li>
-                    <li>ОЩУЩАЕТСЯ КАК: 16°</li>
-                    <li>ВЕТЕР: 2 M/S</li>
-                    <li>ВЛАЖНОСТЬ: 66%</li>
+                    <li class="weather__desctription_summary">ЯСНО</li>
+                    <li class="weather__desctription_apparent">
+                        <span data-i18n="feellike">ОЩУЩАЕТСЯ КАК: </span>
+                        <span class="weather__desctription_apparent_value">16</span> 
+                        <span data-metric="tempScale">°C</span></li>
+                    <li class="weather__desctription_speed">
+                        <span data-i18n="wind">ВЕТЕР: </span>
+                        <span class="weather__desctription_speed_value">2</span> 
+                        <span data-i18n="speedscale">м/с</span></li>
+                    <li class="weather__desctription_humidity">
+                        <span data-i18n="humidity">ВЛАЖНОСТЬ:</span>
+                        <span class="weather__desctription_humidity_value">66</span>
+                        <span>%</span>
+                    </li>
                 </ul>
             </div>
             <div class="weather__days">
-                <div class="weather__day weather__day_yesterday">
-                    СРЕДА 14°
+                <div class="weather__day weather__day_1">
+                    <div class="weather__day_temp">14</div>
+                    <div class="weather__ico">
+                    </div>
+                    <div class="weather__desctription_summary">ЯСНО</div>
+                    <div class="weather__day_name">Пятница</div>
                 </div>
-                <div class="weather__day weather__day_today">
-                    Четверг 15°
+                <div class="weather__day weather__day_2">
+                    <div class="weather__day_temp">15</div>
+                    <div class="weather__ico"></div>
+                    <div class="weather__desctription_summary">ЯСНО</div>
+                    <div class="weather__day_name">ЧЕТВЕРГ</div>
                 </div>
-                <div class="weather__day weather__day_tomorrow">
-                    Пятница 16°
+                <div class="weather__day weather__day_3">
+                    <div class="weather__day_temp">17</div>
+                    <div class="weather__ico"></div>
+                    <div class="weather__desctription_summary">ЯСНО</div>
+                    <div class="weather__day_name">СРЕДА</div>
                 </div>
             </div>
         </div>
@@ -69,8 +93,14 @@
 
             </div>
             <div class="map__cord">
-                <p>Широта: 53° 51" 8'</p>
-                <p>Долгота: 27° 26" 32'</p>
+                <div>
+                    <span data-i18n="lat">Широта: </span>
+                    <span class="map__cord_lat">53° 51" 8'</span>
+                </div>
+                <div>
+                    <span data-i18n="lon">Долгота: </span>
+                    <span class="map__cord_lon">27° 26" 32'</span>
+                </div>
             </div>
         </div>
         <!-- end container -->

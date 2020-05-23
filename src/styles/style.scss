@@ -69,8 +69,8 @@ body {
     gap: 1px 1px;
     grid-template-areas:
         "weather__header weather__header weather__header"
-        "weather__temp weather__temp weather__ico"
-        "weather__temp weather__temp weather__description"
+        "weather__temp_m weather__temp_m weather__ico_m"
+        "weather__temp_m weather__temp_m weather__description"
         "weather__days weather__days weather__days";
     grid-area: weather;
 }
@@ -83,17 +83,21 @@ body {
 .weather__header__wrap {
     text-align: center;
 }
-.weather__temp {
-    grid-area: weather__temp;
+.weather__temp_m {
+    grid-area: weather__temp_m;
     font-size: 10em;
     text-align: center;
 }
 
-.weather__ico {
-    grid-area: weather__ico;
+.weather__ico_m {
+    grid-area: weather__ico_m;
+}
+.weather__ico  {
     background-image: url("../../assets/img/sun.png");
     background-repeat: no-repeat;
     background-size: contain;
+    width: 100%;
+    height: 100%;
 }
 
 .weather__description {
@@ -106,13 +110,14 @@ body {
     justify-content: space-around;
 }
 .weather__day {
-    background-image: url("../../assets/img/sun.png");
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain;
     text-transform: uppercase;
     height: $wday;
     width: 20%;
+    .weather__desctription_summary{
+        font-style: italic;
+        text-transform: lowercase;
+        font-size: 0.8em;
+    }
 }
 
 .map {

@@ -2,10 +2,13 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
 // const devmode = process.env.NODE_ENV === 'development';
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
+  // mode: 'development',
+  // devtool: devmode ? 'source-map' : '',
   // entry: ['@babel/polyfill', './src/scripts/app.js'],
   entry: './src/scripts/app.js',
   output: {
