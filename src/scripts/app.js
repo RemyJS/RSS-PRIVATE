@@ -14,8 +14,11 @@ const btnlang = document.querySelectorAll('.control__setting_lang button');
 const wdate = document.querySelector('.weather__header__date');
 const wtime = document.querySelector('.weather__header__time');
 
+const randomBackround = document.querySelector('.control__setting_bg');
+randomBackround.addEventListener('click', changeBackground);
+
 formInit(form);
 langSetting(btnlang);
-window.timerId = renderDate(wdate, wtime);
+renderDate(wdate, wtime);
 getLocation();
 changeBackground();

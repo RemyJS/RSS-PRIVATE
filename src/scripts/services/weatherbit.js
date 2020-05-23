@@ -31,9 +31,10 @@ const render = (forecast) => {
   humidity.innerText = today.rh;
 };
 
-const getForecast = (city, metric = 'M') => {
+const getForecast = (city, cournty = '') => {
+  const metric = 'M';
   const lang = localStorage.getItem('lang');
-  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}&days=4&units=${metric}&lang=${lang}&key=f588eabe44b14df09538a907aacc1426`;
+  const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}${cournty}&days=4&units=${metric}&lang=${lang}&key=f588eabe44b14df09538a907aacc1426`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
