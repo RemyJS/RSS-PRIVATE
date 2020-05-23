@@ -9,7 +9,6 @@ const changeLang = (translation) => {
   });
 };
 const langSetting = (buttons) => {
-  console.log(localStorage.getItem('lang'));
   if (!localStorage.getItem('lang')) {
     localStorage.setItem('lang', window.navigator.language.slice(0, 2));
   }
