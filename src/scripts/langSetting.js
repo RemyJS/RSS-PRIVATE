@@ -8,6 +8,21 @@ const changeLang = (translation) => {
     el.innerText = translation[el.dataset.i18n];
   });
 };
+const setLang = (lang) => {
+  switch (lang) {
+    case 'en':
+      changeLang(en);
+      break;
+    case 'ru':
+      changeLang(ru);
+      break;
+    case 'be':
+      changeLang(be);
+      break;
+    default:
+      break;
+  }
+};
 const langSetting = (buttons) => {
   if (!localStorage.getItem('lang')) {
     localStorage.setItem('lang', window.navigator.language.slice(0, 2));
@@ -15,21 +30,10 @@ const langSetting = (buttons) => {
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
       const lang = btn.dataset.setlang;
-      switch (lang) {
-        case 'en':
-          changeLang(en);
-          break;
-        case 'ru':
-          changeLang(ru);
-          break;
-        case 'be':
-          changeLang(be);
-          break;
-        default:
-          break;
-      }
+      setLang(lang);
       localStorage.setItem('lang', lang);
     });
   });
+  setLang(localStorage.getItem('lang'));
 };
 export default langSetting;
