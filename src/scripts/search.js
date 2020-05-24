@@ -1,4 +1,4 @@
-import getForecast from './services/weatherbit';
+import { getForecast } from './services/weatherbit';
 
 const formInit = (form) => {
   const input = form.querySelector('.search__input');

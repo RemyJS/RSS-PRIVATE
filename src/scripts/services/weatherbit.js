@@ -1,14 +1,22 @@
-const getTemp = (temp) => {
+const getTemp = (temp, M = 'M') => {
+  let m;
+  if (M === 'M') {
+    m = 'C';
+  } else {
+    m = 'F';
+  }
   let t = Math.round(temp);
   if (t > 0) {
-    t = `+${t}`;
+    t = `+${t}°${m}`;
   } else if (t < 0) {
-    t = `-${t}`;
+    t = `-${t}°${m}`;
+  } else {
+    t = `${t}°${m}`;
   }
   return t;
 };
 
-const render = (forecast) => {
+const render = (forecast, metric) => {
   console.log(forecast);
   const temps = document.querySelectorAll('.weather__day_temp');
   const icons = document.querySelectorAll('.weather__ico');
@@ -19,29 +27,29 @@ const render = (forecast) => {
   const { data } = forecast;
 
   for (let i = 0; i < 4; i += 1) {
-    temps[i].innerText = getTemp(data[i].temp);
+    temps[i].innerText = getTemp(data[i].temp, metric);
     summary[i].innerText = data[i].weather.description;
     icons[i].style.backgroundImage = `url(https://www.weatherbit.io/static/img/icons/${data[i].weather.icon}.png)`;
   }
 
   const today = data[0];
 
-  apparent.innerText = getTemp(today.app_max_temp);
+  apparent.innerText = getTemp(today.app_max_temp, metric);
   speed.innerText = Math.round(today.wind_spd);
   humidity.innerText = today.rh;
 };
 
 const getForecast = (city, cournty = '') => {
-  const metric = 'M';
+  const metric = localStorage.getItem('metric') || 'M';
   const lang = localStorage.getItem('lang');
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}${cournty}&days=4&units=${metric}&lang=${lang}&key=f588eabe44b14df09538a907aacc1426`;
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      render(data);
+      render(data, metric);
     }).catch((err) => {
       console.log(err);
     });
 };
 
-export default getForecast;
+export { getForecast, getTemp };
