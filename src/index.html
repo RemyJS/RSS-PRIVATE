@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fancy Weather</title>
     <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
 </head>
 
 <body>
@@ -27,7 +28,7 @@
             </div>
             <form class="search">
                 <input class="search__input" type="text" pattern="[A-я].{2,}">
-                <button class="search__button" data-i18n="search">ы</button>
+                <button class="search__button" data-i18n="search">Поиск</button>
             </form>
         </div>
 
@@ -52,11 +53,11 @@
                     <li class="weather__desctription_summary">ЯСНО</li>
                     <li class="weather__desctription_apparent">
                         <span data-i18n="feellike">ОЩУЩАЕТСЯ КАК: </span>
-                        <span class="weather__desctription_apparent_value">16</span> 
+                        <span class="weather__desctription_apparent_value">16</span>
                     </li>
                     <li class="weather__desctription_speed">
                         <span data-i18n="wind">ВЕТЕР: </span>
-                        <span class="weather__desctription_speed_value">2</span> 
+                        <span class="weather__desctription_speed_value">2</span>
                         <span data-i18n="speedscale">м/с</span></li>
                     <li class="weather__desctription_humidity">
                         <span data-i18n="humidity">ВЛАЖНОСТЬ:</span>
@@ -89,7 +90,7 @@
         </div>
 
         <div class="map">
-            <div class="map__yandex">
+            <div id="mapbox" class="map__mapbox">
 
             </div>
             <div class="map__cord">

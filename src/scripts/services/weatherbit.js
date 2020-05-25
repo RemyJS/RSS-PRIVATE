@@ -1,3 +1,5 @@
+import setMap from '../mapbox';
+
 const getTemp = (temp, M = 'M') => {
   let m;
   if (M === 'M') {
@@ -37,6 +39,8 @@ const render = (forecast, metric) => {
   apparent.innerText = getTemp(today.app_max_temp, metric);
   speed.innerText = Math.round(today.wind_spd);
   humidity.innerText = today.rh;
+
+  setMap(forecast.lon, forecast.lat);
 };
 
 const getForecast = (city, cournty = '') => {

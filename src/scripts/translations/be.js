@@ -1,9 +1,9 @@
 export default {
   search: 'Пошук',
-  feellike: 'адчуваецца як:',
-  wind: 'хуткасць ветру',
+  feellike: 'Адчуваецца як:',
+  wind: 'Хуткасць ветру',
   speedscale: 'м/с',
-  humidity: 'вільготнасць',
-  lat: 'шырата',
-  lon: 'даўгата',
+  humidity: 'Вільготнасць',
+  lat: 'Шырата',
+  lon: 'Даўгата',
 };

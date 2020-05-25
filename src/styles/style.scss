@@ -34,7 +34,7 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 2fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas:
@@ -64,7 +64,7 @@ body {
 }
 .weather {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1.7fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas:
@@ -126,18 +126,21 @@ body {
     grid-template-rows: 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas:
-        "map__yandex map__yandex"
+        "map__mapbox map__mapbox"
         ". map__cord";
     grid-area: map;
 }
 
-.map__yandex {
-    grid-area: map__yandex;
-    background-image: url("../../assets/img/yandexmap.jpg");
-    background-repeat: no-repeat;
-    background-size: contain;
+.map__mapbox {
+    grid-area: map__mapbox;
+    margin: 0 5%;
+    height: 65vh;
+    border-radius: 60px 15px 60px;
+    border: 5px ridge $color;
 }
 
 .map__cord {
     grid-area: map__cord;
+    text-align: right;
+    margin-right: 14%;
 }
