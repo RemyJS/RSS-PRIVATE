@@ -6,7 +6,8 @@ const map = new mapboxgl.Map({
   container: 'mapbox',
   style: 'mapbox://styles/mapbox/outdoors-v11',
   center: [27.56667, 53.519], // starting position [long, lat]
-  zoom: 11,
+  zoom: 12,
+  pitch: 45,
 });
 map.addControl(new mapboxgl.NavigationControl());
 
@@ -45,7 +46,10 @@ const renderCoords = (long, lat) => {
   lon.innerText = formatCoords(long);
 };
 const setMap = (long, lat) => {
-  map.setCenter([long, lat]);
+  map.flyTo({
+    center: [long, lat],
+    essential: true,
+  });
   marker.setLngLat([long, lat]);
   renderCoords(long, lat);
 };
