@@ -24,15 +24,13 @@ map.on('load', () => { // english and native counrty name
         'literal',
         ['DIN Offc Pro Italic', 'Arial Unicode MS Regular'],
       ],
-    }
+    },
   ]);
 });
 
 const marker = new mapboxgl.Marker()
   .setLngLat([27.56667, 53.9])
   .addTo(map);
-window.map = map;
-window.marker = marker;
 
 const formatCoords = (cord) => {
   const arr = cord.toString().split('.');

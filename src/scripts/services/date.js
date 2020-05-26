@@ -9,10 +9,7 @@ const day = {
   en: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', ' Thursday ', 'Friday', 'Saturday'],
   be: ['нядзеля', 'Панядзелак', 'аўторак', 'серада', 'чацвер', 'Пятніца', 'субота'],
 };
-const lessThenTen = (n) => {
-  if (n < 10) return `0${n}`;
-  return n;
-};
+
 const set3days = (lang, d) => {
   let indexDay = d;
   const threeDays = document.querySelectorAll('.weather__day_name');
@@ -22,24 +19,33 @@ const set3days = (lang, d) => {
     el.innerText = day[lang][indexDay];
   });
 };
-const renderDate = (date, time) => {
+const timeZoneOption = {
+  get timeZone() {
+    return this.zone;
+  },
+  set timeZone(tzone) {
+    this.zone = tzone;
+  },
+};
+
+const renderDate = () => {
+  const date = document.querySelector('.weather__header__date');
+  const time = document.querySelector('.weather__header__time');
   const timerId = setInterval(() => {
     const lang = localStorage.getItem('lang');
     const now = new Date();
 
-    const m = now.getMonth();
-    const d = now.getDay();
+    const m = now.getUTCMonth();
+    const d = now.getUTCDay();
     const monthname = month[lang][m];
     const dayname = day[lang][d];
     set3days(lang, d);
 
-    const h = lessThenTen(now.getHours());
-    const min = lessThenTen(now.getMinutes());
-    const sec = lessThenTen(now.getSeconds());
+    const locale = now.toLocaleString('en-GB', timeZoneOption);
     date.innerText = `${dayname} ${now.getDate()} ${monthname}`;
-    time.innerText = `${h}:${min}:${sec}`;
+    time.innerText = locale.slice(-8);
   }, 1000);
   return timerId;
 };
 
-export default renderDate;
+export { renderDate, timeZoneOption };

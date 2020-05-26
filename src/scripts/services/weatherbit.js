@@ -1,4 +1,5 @@
 import setMap from '../mapbox';
+import { timeZoneOption } from './date';
 
 const getTemp = (temp, M = 'M') => {
   let m;
@@ -41,6 +42,7 @@ const render = (forecast, metric) => {
   humidity.innerText = today.rh;
 
   setMap(forecast.lon, forecast.lat);
+  timeZoneOption.timeZone = forecast.timezone;
 };
 
 const getForecast = (city, cournty = '') => {
