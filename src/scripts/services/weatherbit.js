@@ -1,5 +1,6 @@
 import setMap from '../mapbox';
 import { timeZoneOption } from './date';
+import { geoCodeTranslate, cageCoords } from './opencage';
 
 const getTemp = (temp, M = 'M') => {
   let m;
@@ -42,6 +43,8 @@ const render = (forecast, metric) => {
   humidity.innerText = today.rh;
 
   setMap(forecast.lon, forecast.lat);
+  cageCoords.lat = forecast.lat;
+  cageCoords.lon = forecast.lon;
   timeZoneOption.timeZone = forecast.timezone;
 };
 
@@ -53,6 +56,7 @@ const getForecast = (city, cournty = '') => {
     .then((res) => res.json())
     .then((data) => {
       render(data, metric);
+      geoCodeTranslate(lang);
     }).catch((err) => {
       console.log(err);
     });

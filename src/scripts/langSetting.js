@@ -1,6 +1,7 @@
 import en from './translations/en';
 import ru from './translations/ru';
 import be from './translations/be';
+import { geoCodeTranslate } from './services/opencage';
 
 const changeLang = (translation) => {
   const i18n = document.querySelectorAll('[data-i18n]');
@@ -9,6 +10,7 @@ const changeLang = (translation) => {
   });
 };
 const setLang = (lang) => {
+  geoCodeTranslate(lang);
   switch (lang) {
     case 'en':
       changeLang(en);
