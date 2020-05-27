@@ -3,7 +3,7 @@
     font-family: "franx";
     src: url("../../assets/fonts/franx.ttf");
 }
-$color: #fff;
+$main-color: #fff;
 $sunsize: 150px;
 $wday: 50px;
 $border-style: 3px outset whitesmoke;
@@ -27,7 +27,7 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     background-repeat: no-repeat;
     background-size: cover;
-    color: $color;
+    color: $main-color;
     font-size: 2.5vmin;
     font-family: "franx";
 }
@@ -58,7 +58,9 @@ body {
         border-radius: 5px;
         cursor: pointer;
         outline: none;
-        background-color: gainsboro;
+        background-color: cornflowerblue;
+        border: $border-style;
+        color: $main-color;
     }
 }
 .search {
@@ -69,7 +71,7 @@ body {
     input,
     button {
         border: $border-style;
-        color: $color;
+        color: $main-color;
         outline: none;
         height: 35px;
         background: transparent;
@@ -90,14 +92,15 @@ body {
     }
     .search__button {
         padding:0 10px;
-        color: $color;
+        color: $main-color;
         border-radius: 0 10px 10px 0;
         cursor: pointer;
         border-left: none;
         height: 41px;
+        background: cornflowerblue;
     }
     .search__button:hover {
-        font-style: italic;
+        color: khaki;
     }
 }
 .weather {
@@ -123,8 +126,13 @@ body {
 }
 .weather__temp_m {
     grid-area: weather__temp_m;
-    font-size: 10em;
+    font-size: 8em;
     text-align: center;
+}
+.weather__day_temp {
+    sup {
+        font-size: 0.7em;
+    }
 }
 
 .weather__ico_m {

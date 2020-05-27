@@ -11,7 +11,7 @@ const changeMetric = (cels, fahr) => {
       temp.forEach((t) => {
         const num = parseInt(t.innerText, 10);
         const c = (num - 32) / 1.8;
-        t.innerText = getTemp(c, 'M');
+        t.innerHTML = getTemp(c, 'M');
       });
     }
   });
@@ -23,7 +23,7 @@ const changeMetric = (cels, fahr) => {
       temp.forEach((t) => {
         const num = parseInt(t.innerText, 10);
         const c = (num * 1.8) + 32;
-        t.innerText = getTemp(c, 'I');
+        t.innerHTML = getTemp(c, 'I');
       });
     }
   });

@@ -11,11 +11,11 @@ const getTemp = (temp, M = 'M') => {
   }
   let t = Math.round(temp);
   if (t > 0) {
-    t = `+${t}°${m}`;
+    t = `+${t}<sup>°${m}</sup>`;
   } else if (t < 0) {
-    t = `-${t}°${m}`;
+    t = `-${t}<sup>°${m}</sup>`;
   } else {
-    t = `${t}°${m}`;
+    t = `${t}<sup>°${m}</sup>`;
   }
   return t;
 };
@@ -31,14 +31,15 @@ const render = (forecast, metric) => {
   const { data } = forecast;
 
   for (let i = 0; i < 4; i += 1) {
-    temps[i].innerText = getTemp(data[i].temp, metric);
+    temps[i].innerHTML = getTemp(data[i].temp, metric);
     summary[i].innerText = data[i].weather.description;
+    summary[i].dataset.i18n = data[i].weather.code;
     icons[i].style.backgroundImage = `url(https://www.weatherbit.io/static/img/icons/${data[i].weather.icon}.png)`;
   }
 
   const today = data[0];
 
-  apparent.innerText = getTemp(today.app_max_temp, metric);
+  apparent.innerHTML = getTemp(today.app_max_temp, metric);
   speed.innerText = Math.round(today.wind_spd);
   humidity.innerText = today.rh;
 

@@ -4,14 +4,13 @@ const renderCountry = (data) => {
   let townState;
   if (components.town && components.state) townState = `${components.town}, ${components.state}`;
   place.innerText = ` ${components.city || townState || components.town || components.village || components.state}, ${components.country}`;
-  console.log(components);
 };
 const cageCoords = {
   lat: 53.9,
   lon: 27.56,
   getCoords() {
     return `${this.lat}%2C${this.lon} `;
-  }
+  },
 };
 const geoCodeTranslate = (lang) => {
   const key = 'key=a4fba62e009a4223bcad58d7d1b238da';
