@@ -6,7 +6,7 @@
 $color: #fff;
 $sunsize: 150px;
 $wday: 50px;
-
+$border-style: 3px outset whitesmoke;
 *,
 h1,
 h2,
@@ -27,7 +27,7 @@ body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
     background-repeat: no-repeat;
     background-size: cover;
-    color: white;
+    color: $color;
     font-size: 2.5vmin;
     font-family: "franx";
 }
@@ -53,13 +53,51 @@ body {
 }
 .control__setting {
     button {
-        width: 50px;
+        width: 70px;
         height: 30px;
         border-radius: 5px;
-        font-weight: bold;
         cursor: pointer;
         outline: none;
         background-color: gainsboro;
+    }
+}
+.search {
+    display: inline-flex;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    input,
+    button {
+        border: $border-style;
+        color: $color;
+        outline: none;
+        height: 35px;
+        background: transparent;
+    }
+    .search__input {
+        border-radius: 10px 0 0 10px;
+        border-right: none;
+        padding-left: 10px;
+    }
+    .search__country_code {
+        border-right: none;
+        border-left: none;
+        width: 50px;
+    }
+    .search__country_code::placeholder {
+        font-size: 0.9em;
+        color: rgba(255, 255, 255, 0.65);
+    }
+    .search__button {
+        padding:0 10px;
+        color: $color;
+        border-radius: 0 10px 10px 0;
+        cursor: pointer;
+        border-left: none;
+        height: 41px;
+    }
+    .search__button:hover {
+        font-style: italic;
     }
 }
 .weather {
@@ -92,7 +130,7 @@ body {
 .weather__ico_m {
     grid-area: weather__ico_m;
 }
-.weather__ico  {
+.weather__ico {
     background-image: url("../../assets/img/sun.png");
     background-repeat: no-repeat;
     background-size: contain;
@@ -113,7 +151,7 @@ body {
     text-transform: uppercase;
     height: $wday;
     width: 20%;
-    .weather__desctription_summary{
+    .weather__desctription_summary {
         font-style: italic;
         text-transform: lowercase;
         font-size: 0.8em;
@@ -136,7 +174,7 @@ body {
     margin: 0 5%;
     height: 65vh;
     border-radius: 60px 15px 60px;
-    border: 5px ridge $color;
+    border:  $border-style;
 }
 
 .map__cord {

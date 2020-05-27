@@ -7,7 +7,6 @@ import changeBackground from './services/background';
 import formInit from './search';
 import langSetting from './langSetting';
 import changeMetric from './metric';
-// import map from './mapbox';
 
 const form = document.querySelector('.search');
 
