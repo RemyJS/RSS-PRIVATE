@@ -8,7 +8,7 @@ const changeBackground = () => {
       body.style.backgroundColor = data.color;
       body.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url(${path})`;
     }).catch(() => {
-      body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)), url("../../assets/img/weather-forecast.jpg")';
+      body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url("../../assets/img/weather-forecast.jpg")';
     });
 };
 

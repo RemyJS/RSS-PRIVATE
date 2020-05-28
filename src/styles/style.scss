@@ -1,11 +1,10 @@
 @import "~normalize.css";
 @font-face {
-    font-family: "franx";
-    src: url("../../assets/fonts/franx.ttf");
+    font-family: "fancyfonts";
+    src: url("../../assets/fonts/literata.ttf");
 }
 $main-color: #fff;
 $sunsize: 150px;
-$wday: 50px;
 $border-style: 3px outset whitesmoke;
 *,
 h1,
@@ -29,7 +28,7 @@ body {
     background-size: cover;
     color: $main-color;
     font-size: 2.5vmin;
-    font-family: "franx";
+    font-family: "fancyfonts";
 }
 
 .grid-container {
@@ -53,14 +52,19 @@ body {
 }
 .control__setting {
     button {
-        width: 70px;
-        height: 30px;
+        width: 80px;
+        height: 40px;
         border-radius: 5px;
         cursor: pointer;
         outline: none;
-        background-color: cornflowerblue;
-        border: $border-style;
+        background-color: transparent;
+        border: none;
+        border-left: 1px solid #fff;
+        border-right: 1px solid #fff;
         color: $main-color;
+    }
+    button:hover {
+        color: #6495ed;
     }
 }
 .search {
@@ -97,7 +101,7 @@ body {
         cursor: pointer;
         border-left: none;
         height: 41px;
-        background: cornflowerblue;
+        background: #6495ed;
     }
     .search__button:hover {
         color: khaki;
@@ -105,8 +109,8 @@ body {
 }
 .weather {
     display: grid;
-    grid-template-columns: 1fr 1fr 1.7fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 3fr 1fr 1.7fr;
+    grid-template-rows: 0.5fr 0.75fr 0.75fr 1.5fr;
     gap: 1px 1px;
     grid-template-areas:
         "weather__header weather__header weather__header"
@@ -139,7 +143,9 @@ body {
     grid-area: weather__ico_m;
 }
 .weather__ico {
-    background-image: url("../../assets/img/sun.png");
+    background: url("../../assets/img/icons/climacon-cloud_lightning_sun.svg");
+    filter: brightness(0) invert(1);
+    // https://codepen.io/sosuke/pen/Pjoqqp
     background-repeat: no-repeat;
     background-size: contain;
     width: 100%;
@@ -157,19 +163,28 @@ body {
 }
 .weather__day {
     text-transform: uppercase;
-    height: $wday;
-    width: 20%;
+    text-align: center;
+    padding: 10px 20px;
+    .weather__day_wrap{
+        display: flex;
+        font-size: 1.5em;
+        line-height: 1.5em;
+        align-items: center;
+        .weather__ico {
+            height: 100px;
+            width: 100px;
+        }
+    }
     .weather__desctription_summary {
         font-style: italic;
-        text-transform: lowercase;
+        text-transform: capitalize;
         font-size: 0.8em;
     }
 }
-
 .map {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 3fr 1fr;
     gap: 1px 1px;
     grid-template-areas:
         "map__mapbox map__mapbox"
@@ -180,7 +195,6 @@ body {
 .map__mapbox {
     grid-area: map__mapbox;
     margin: 0 5%;
-    height: 65vh;
     border-radius: 60px 15px 60px;
     border:  $border-style;
 }

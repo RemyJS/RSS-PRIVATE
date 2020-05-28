@@ -1,6 +1,7 @@
 import setMap from '../mapbox';
 import { timeZoneOption } from './date';
 import { geoCodeTranslate, cageCoords } from './opencage';
+import animatedIcons from './weathericons';
 
 const getTemp = (temp, M = 'M') => {
   let m;
@@ -34,7 +35,8 @@ const render = (forecast, metric) => {
     temps[i].innerHTML = getTemp(data[i].temp, metric);
     summary[i].innerText = data[i].weather.description;
     summary[i].dataset.i18n = data[i].weather.code;
-    icons[i].style.backgroundImage = `url(https://www.weatherbit.io/static/img/icons/${data[i].weather.icon}.png)`;
+    // icons[i].style.backgroundImage = `url(https://www.weatherbit.io/static/img/icons/${data[i].weather.icon}.png)`;
+    icons[i].style.backgroundImage = `url(../../assets/img/icons/${animatedIcons[data[i].weather.code]})`;
   }
 
   const today = data[0];
