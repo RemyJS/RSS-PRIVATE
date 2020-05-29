@@ -204,10 +204,63 @@ body {
     -webkit-mask-image: url("../../assets/img/map_mask4.png");
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size: contain;
-    -webkit-mask-position: center
+    -webkit-mask-position: center;
 }
 
 .map__cord {
     grid-area: map__cord;
     text-align: center;
+}
+@media (max-width: 1200px) {
+    .control {
+        margin: 40px 0;
+    }
+    .grid-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .weather {
+        grid-template-columns: 1fr 2fr 1.5fr;
+        grid-template-rows: 0.2fr 0.45fr 0.45fr 0.5fr;
+        gap: 1px 1px;
+    }
+    .map {
+        width: 80%;
+        height: 20%;
+    }
+    .map__mapbox {
+        grid-area: map__mapbox;
+        -webkit-mask-image: url("../../assets/img/map_mask5.png");
+        margin: 0 5%;
+        width: 90%;
+    }
+    .map__cord {
+        text-align: left;
+    }
+}
+@media (max-width: 767px) {
+    .control {
+        flex-direction: column;
+    }
+    .weather__days {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .weather__day_wrap {
+        justify-content: center;
+    }
+}
+@media (max-width: 415px) {
+    html {
+        background-size: auto;
+    }
+    body {
+        height: auto;
+        font-size: 3.5vmin;
+    }
+    .weather {
+        grid-template-rows: 0.1fr 0.25fr 0.05fr 1fr;
+    }
 }
