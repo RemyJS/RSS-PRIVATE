@@ -22,7 +22,7 @@ body,
     height: 100%;
 }
 html {
-    background-image: url("../../assets/img/59.jpg");
+    background-image: url("../../assets/img/weather-forecast.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     transition: background-image 1s ease-in-out;
@@ -101,7 +101,7 @@ body {
         color: rgba(255, 255, 255, 0.65);
     }
     .search__button {
-        padding:0 10px;
+        padding: 0 10px;
         color: $main-color;
         border-radius: 0 10px 10px 0;
         cursor: pointer;
@@ -171,7 +171,7 @@ body {
     text-transform: uppercase;
     text-align: center;
     padding: 10px 20px;
-    .weather__day_wrap{
+    .weather__day_wrap {
         display: flex;
         font-size: 1.5em;
         line-height: 1.5em;
@@ -201,12 +201,13 @@ body {
 .map__mapbox {
     grid-area: map__mapbox;
     margin: 0 5%;
-    border-radius: 60px 15px 60px;
-    border:  $border-style;
+    -webkit-mask-image: url("../../assets/img/map_mask4.png");
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center
 }
 
 .map__cord {
     grid-area: map__cord;
-    text-align: right;
-    margin-right: 14%;
+    text-align: center;
 }
