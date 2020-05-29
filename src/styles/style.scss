@@ -40,7 +40,7 @@ body {
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 2fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.6fr 1fr 1fr 1fr;
     gap: 1px 1px;
     grid-template-areas:
         "control control control"
@@ -54,30 +54,38 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 5vh 0;
-}
-.control__setting {
-    button {
-        width: 80px;
-        height: 40px;
-        border-radius: 5px;
-        cursor: pointer;
-        outline: none;
-        background-color: transparent;
-        border: none;
-        border-left: 1px solid #fff;
-        border-right: 1px solid #fff;
-        color: $main-color;
-    }
-    button:hover {
-        color: #6495ed;
+    margin: 50px 0 25px;
+    h1 {
+        line-height: 35px;
     }
 }
+
+.control__setting_btn {
+    width: 70px;
+    height: 35px;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+    border: none;
+    color: $main-color;
+    z-index: 1;
+}
+.control__setting_btn:hover {
+    color: #6495ed;
+    background-color: whitesmoke;
+}
+.control__setting_temp,
+.control__setting_lang {
+    display: flex;
+    justify-content: space-between;
+    border: $border-style;
+    height: 35px;
+    border-radius: 10px;
+    z-index: 2;
+}
+
 .search {
     display: inline-flex;
-    height: 60px;
-    justify-content: space-between;
-    align-items: center;
     input,
     button {
         border: $border-style;
@@ -110,7 +118,8 @@ body {
         background: #6495ed;
     }
     .search__button:hover {
-        color: khaki;
+        color: #6495ed;
+        background: whitesmoke;
     }
 }
 .weather {
@@ -232,6 +241,7 @@ body {
     .map__mapbox {
         grid-area: map__mapbox;
         -webkit-mask-image: url("../../assets/img/map_mask5.png");
+
         margin: 0 5%;
         width: 90%;
     }
@@ -239,9 +249,38 @@ body {
         text-align: left;
     }
 }
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .control {
         flex-direction: column;
+        margin: 0 auto;
+        h1 {
+            margin: 0 auto;
+        }
+    }
+    .control__setting_temp,
+    .control__setting_lang {
+        border: none;
+        display: block;
+        position: fixed;
+        top: 10px;
+    }
+    .control__setting_temp {
+        left: 10px;
+    }
+    .control__setting_lang {
+        right: 10px;
+    }
+    .control__setting_btn {
+        border-radius:10px;
+        display: block;
+        background-color: #6495ed;
+        border: $border-style;
+        color: $main-color;
+        margin-bottom: 5px;
+    }
+    .control__setting_btn:hover {
+        color: #6495ed;
+        background-color: whitesmoke;
     }
     .weather__days {
         display: flex;
@@ -262,5 +301,10 @@ body {
     }
     .weather {
         grid-template-rows: 0.1fr 0.25fr 0.05fr 1fr;
+    }
+    .control__setting_temp,
+    .control__setting_lang {
+        bottom: 100px;
+        top: auto;
     }
 }

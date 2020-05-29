@@ -16,9 +16,10 @@ const changeBackground = (event, image, region = '') => {
   } else {
     img = 'sky';
   }
-  // const url = `https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=${img}&client_id=biEL7I50srzXOeXn1hYkYV-u9ryWzqk1Dr-ZoLpaKIM`;
-  const url = 'url("../../assets/img/weather-forecast.jpg")';
-  console.log(url);
+  const url = `https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=${img}&client_id=biEL7I50srzXOeXn1hYkYV-u9ryWzqk1Dr-ZoLpaKIM`;
+  const html = document.querySelector('html');
+  // const url = 'url("../../assets/img/weather-forecast.jpg")';
+  console.log(`URL фонового изображения для удобства в ходе проверки ментором или в процессе кросс чека ${url}`);
   fetch(url)
     .then((res) => res.json())
     .then((data) => {

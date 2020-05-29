@@ -14,18 +14,18 @@
 
         <div class="control">
             <h1>Fancy Weather</h1>
-            <div class="control__setting">
+            
                 <div class="control__setting_temp">
-                    <button class="control__setting_bg">reset</button>
-                    <button data-temp="I">F</button>
-                    <button data-temp="M">C</button>
+                    <button class="control__setting_bg control__setting_btn">reset</button>
+                    <button class="control__setting_btn"data-temp="I">F</button>
+                    <button class="control__setting_btn"data-temp="M">C</button>
                 </div>
                 <div class="control__setting_lang">
-                    <button data-setlang="en">en</button>
-                    <button data-setlang="ru">ru</button>
-                    <button data-setlang="be">be</button>
+                    <button class="control__setting_btn"data-setlang="en">en</button>
+                    <button class="control__setting_btn"data-setlang="ru">ru</button>
+                    <button class="control__setting_btn"data-setlang="be">be</button>
                 </div>
-            </div>
+
             <form class="search">
                 <input class="search__input" type="text" pattern="[A-я].{2,}">
                 <input class="search__country_code" type="text" pattern="[A-я].{0,2}" placeholder="code">

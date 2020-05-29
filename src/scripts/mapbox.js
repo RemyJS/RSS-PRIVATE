@@ -9,7 +9,6 @@ const map = new mapboxgl.Map({
   zoom: 12,
   pitch: 45,
 });
-map.addControl(new mapboxgl.NavigationControl());
 
 map.on('load', () => { // english and native counrty name
   map.setLayoutProperty('country-label', 'text-field', [
