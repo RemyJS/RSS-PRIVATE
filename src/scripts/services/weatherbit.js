@@ -2,6 +2,7 @@ import setMap from '../mapbox';
 import { timeZoneOption } from './date';
 import { geoCodeTranslate, cageCoords } from './opencage';
 import animatedIcons from './weathericons';
+import changeBackground from './background';
 
 const getTemp = (temp, M = 'M') => {
   let m;
@@ -49,6 +50,7 @@ const render = (forecast, metric) => {
   cageCoords.lat = forecast.lat;
   cageCoords.lon = forecast.lon;
   timeZoneOption.timeZone = forecast.timezone;
+  changeBackground(null, data[0].weather.code, forecast.timezone);
 };
 
 const getForecast = (city, cournty = '') => {
