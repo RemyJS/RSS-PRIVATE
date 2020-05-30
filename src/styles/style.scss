@@ -95,8 +95,8 @@ body {
         background: transparent;
     }
     .search__input {
-        border-radius: 10px 0 0 10px;
         border-right: none;
+        border-left: none;
         padding-left: 10px;
     }
     .search__country_code {
@@ -108,18 +108,36 @@ body {
         font-size: 0.9em;
         color: rgba(255, 255, 255, 0.65);
     }
+    .search__rec,
+    .search__button {
+        color: $main-color;
+        cursor: pointer;
+        height: 41px;
+        background-color: #6495ed;
+    }
+    .search__rec {
+        border-radius: 10px 0 0 10px;
+        border-right: none;
+        width: 40px;
+        background-image: url("../../assets/img/microphone.svg");
+        background-size : 30px 30px;
+        background-repeat: no-repeat;
+        background-position: center;
+        fill:whitesmoke;
+    }
+    .search__rec:hover {
+        background-image: url("../../assets/img/microphone_hover.svg");
+    }
     .search__button {
         padding: 0 10px;
-        color: $main-color;
         border-radius: 0 10px 10px 0;
-        cursor: pointer;
         border-left: none;
-        height: 41px;
-        background: #6495ed;
     }
+    .search__rec:hover,
     .search__button:hover {
         color: #6495ed;
-        background: whitesmoke;
+        fill: #6495ed;
+        background-color: whitesmoke;
     }
 }
 .weather {
@@ -147,6 +165,7 @@ body {
     grid-area: weather__temp_m;
     font-size: 8em;
     text-align: center;
+    cursor: url('../../assets/img/sound_w.png'), auto;
 }
 .weather__day_temp {
     sup {
@@ -241,7 +260,6 @@ body {
     .map__mapbox {
         grid-area: map__mapbox;
         -webkit-mask-image: url("../../assets/img/map_mask5.png");
-
         margin: 0 5%;
         width: 90%;
     }
@@ -271,7 +289,7 @@ body {
         right: 10px;
     }
     .control__setting_btn {
-        border-radius:10px;
+        border-radius: 10px;
         display: block;
         background-color: #6495ed;
         border: $border-style;
@@ -293,7 +311,8 @@ body {
 }
 @media (max-width: 415px) {
     html {
-        background-size: auto;
+        background-size: 500% auto;
+        background-repeat: repeat-y;
     }
     body {
         height: auto;
