@@ -7,17 +7,17 @@ import changeBackground from './background';
 const getTemp = (temp, M = 'M') => {
   let m;
   if (M === 'M') {
-    m = 'C';
+    m = '℃';
   } else {
-    m = 'F';
+    m = '°F';
   }
   let t = Math.round(temp);
   if (t > 0) {
-    t = `+${t}<sup>°${m}</sup>`;
+    t = `+${t}<sup>${m}</sup>`;
   } else if (t < 0) {
-    t = `-${t}<sup>°${m}</sup>`;
+    t = `-${t}<sup>${m}</sup>`;
   } else {
-    t = `${t}<sup>°${m}</sup>`;
+    t = `${t}<sup>${m}</sup>`;
   }
   return t;
 };

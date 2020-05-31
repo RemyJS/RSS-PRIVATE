@@ -14,25 +14,27 @@
 
         <div class="control">
             <h1>Fancy Weather</h1>
-            
-                <div class="control__setting_temp">
-                    <button class="control__setting_bg control__setting_btn">reset</button>
-                    <button class="control__setting_btn"data-temp="I">F</button>
-                    <button class="control__setting_btn"data-temp="M">C</button>
-                </div>
-                <div class="control__setting_lang">
-                    <button class="control__setting_btn"data-setlang="en">en</button>
-                    <button class="control__setting_btn"data-setlang="ru">ru</button>
-                    <button class="control__setting_btn"data-setlang="be">be</button>
-                    <button class="control__setting_btn">Talk</button>
-                </div>
+
+            <div class="control__setting_temp">
+                <button class="control__setting_bg control__setting_btn">reset</button>
+                <button class="control__setting_btn" data-temp="I">F</button>
+                <button class="control__setting_btn" data-temp="M">C</button>
+            </div>
+            <div class="control__setting_lang">
+                <button class="control__setting_btn" data-setlang="en">en</button>
+                <button class="control__setting_btn" data-setlang="ru">ru</button>
+                <button class="control__setting_btn" data-setlang="be">be</button>
+            </div>
 
             <form class="search">
-                <button class="search__rec"></button>
+                <button class="search__rec" type="button"></button>
                 <input class="search__input" type="text" pattern="[A-я].{2,}">
                 <input class="search__country_code" type="text" pattern="[A-я].{0,2}" placeholder="code">
-                <button class="search__button" data-i18n="search">Поиск</button>
+                <button class="search__button" data-i18n="search" type="submit">Поиск</button>
+                <div class="notification">notification, введите название города</div>
             </form>
+
+            
         </div>
 
         <div class="weather">

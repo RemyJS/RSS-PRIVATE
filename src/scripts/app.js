@@ -1,4 +1,3 @@
-import '../styles/style.css';
 import '../styles/style.scss';
 
 import { renderDate } from './services/date';
@@ -8,6 +7,7 @@ import formInit from './search';
 import langSetting from './langSetting';
 import changeMetric from './metric';
 import recognizerInit from './recognizer';
+import { synthInit } from './speacker';
 
 const form = document.querySelector('.search');
 
@@ -26,3 +26,4 @@ changeMetric(c, f);
 getLocation();
 changeBackground();
 recognizerInit();
+synthInit();
