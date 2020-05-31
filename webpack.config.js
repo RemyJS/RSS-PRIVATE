@@ -3,13 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-// const devmode = process.env.NODE_ENV === 'development';
-
 module.exports = {
-  devtool: 'inline-source-map',
-  // mode: 'development',
-  // devtool: devmode ? 'source-map' : '',
-  // entry: ['@babel/polyfill', './src/scripts/app.js'],
+  // devtool: 'inline-source-map',
   entry: './src/scripts/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -43,24 +38,18 @@ module.exports = {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
-      // {
-      //   enforce: 'pre',
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: 'eslint-loader',
-      // },
-      // {
-      //   test: /\.js$/,
-      //   exclude: /node_modules/,
-      //   loader: {
-      //     loader: 'babel-loader',
-      //     options: {
-      //       presets: [
-      //         '@babel/preset-env',
-      //       ],
-      //     },
-      //   },
-      // },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+            ],
+          },
+        },
+      },
     ],
   },
   devServer: {
