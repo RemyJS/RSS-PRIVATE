@@ -3,6 +3,7 @@ import { timeZoneOption } from './date';
 import { geoCodeTranslate, cageCoords } from './opencage';
 import animatedIcons from './weathericons';
 import changeBackground from './background';
+import showMsg from '../notification';
 
 const getTemp = (temp, M = 'M') => {
   let m;
@@ -23,7 +24,6 @@ const getTemp = (temp, M = 'M') => {
 };
 
 const render = (forecast, metric) => {
-  console.log(forecast);
   const temps = document.querySelectorAll('.weather__day_temp');
   const icons = document.querySelectorAll('.weather__ico');
   const summary = document.querySelectorAll('.weather__desctription_summary');
@@ -36,7 +36,6 @@ const render = (forecast, metric) => {
     temps[i].innerHTML = getTemp(data[i].temp, metric);
     summary[i].innerText = data[i].weather.description;
     summary[i].dataset.i18n = data[i].weather.code;
-    // icons[i].style.backgroundImage = `url(https://www.weatherbit.io/static/img/icons/${data[i].weather.icon}.png)`;
     icons[i].style.backgroundImage = `url(../../assets/img/icons/${animatedIcons[data[i].weather.code]})`;
   }
 
@@ -54,6 +53,10 @@ const render = (forecast, metric) => {
 };
 
 const getForecast = (city, cournty = '') => {
+  if (city.trim() === '') {
+    showMsg('Введите название населенного пункта', 'Enter city name');
+    return;
+  }
   const metric = localStorage.getItem('metric') || 'M';
   const lang = localStorage.getItem('lang');
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}${cournty}&days=4&units=${metric}&lang=${lang}&key=f588eabe44b14df09538a907aacc1426`;
@@ -62,8 +65,8 @@ const getForecast = (city, cournty = '') => {
     .then((data) => {
       render(data, metric);
       geoCodeTranslate(lang);
-    }).catch((err) => {
-      console.log(err);
+    }).catch(() => {
+      showMsg('Введите название населенного пункта', 'Enter city name');
     });
 };
 

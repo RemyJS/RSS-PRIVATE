@@ -1,4 +1,5 @@
 import { getForecast } from './weatherbit';
+import showMsg from '../notification';
 
 const getLocation = () => {
   const url = 'https://ipinfo.io/json?token=dc61f6ef77e40e';
@@ -6,8 +7,8 @@ const getLocation = () => {
     .then((res) => res.json())
     .then((data) => {
       getForecast(data.city, `&country=${data.country}`);
-    }).catch((err) => {
-      console.log(err);
+    }).catch(() => {
+      showMsg('Неудалось получить геопозицию', 'Failed to get a geoposition');
     });
 };
 

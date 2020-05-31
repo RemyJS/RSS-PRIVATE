@@ -1,3 +1,5 @@
+import showMsg from '../notification';
+
 const renderCountry = (data) => {
   const place = document.querySelector('.weather__header__place');
   const { components } = data.results[0];
@@ -20,8 +22,8 @@ const geoCodeTranslate = (lang) => {
     .then((res) => res.json())
     .then((data) => {
       renderCountry(data);
-    }).catch((err) => {
-      console.log(err);
+    }).catch(() => {
+      showMsg('Не удалось перевести название населенного пункта', 'Failed translate the name of the locality');
     });
 };
 

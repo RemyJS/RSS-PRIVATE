@@ -1,3 +1,5 @@
+import showMsg from '../notification';
+
 const weather = {
   2: 'Thunderstorm',
   3: 'Rain',
@@ -18,20 +20,30 @@ const changeBackground = (event, image, region = '') => {
   }
   const url = `https://api.unsplash.com/photos/random?orientation=landscape&per_page=1&query=${img}&client_id=biEL7I50srzXOeXn1hYkYV-u9ryWzqk1Dr-ZoLpaKIM`;
   const html = document.querySelector('html');
-  // const url = 'url("../../assets/img/weather-forecast.jpg")';
-  // console.log(`URL фонового изображения для проверки ментором или в процессе кросс чека ${url}`);
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => {
-      const path = data.urls.regular;
-      const tempImg = document.createElement('img');
-      tempImg.src = path;
-      tempImg.onload = () => {
-        html.style.backgroundImage = `url(${path})`;
-      };
-    }).catch(() => {
-      html.style.backgroundImage = 'url("../../assets/img/weather-forecast.jpg")';
-    });
+  console.log(`URL фонового изображения для проверки ментором или в процессе кросс чека ${url}`);
+  try {
+    fetch(url)
+      .then((res) => {
+        if (!res.ok) {
+          showMsg('Превышен лимит фоновых изображений', 'Background Limit Exceeded');
+        }
+        return res.json();
+      })
+      .then((data) => {
+        const path = data.urls.regular;
+        const tempImg = document.createElement('img');
+        tempImg.src = path;
+        tempImg.onload = () => {
+          html.style.backgroundImage = `url(${path})`;
+        };
+      })
+      .catch(() => {
+        showMsg('Превышен лимит фоновых изображений', 'Background Limit Exceeded');
+        html.style.backgroundImage = 'url("../../assets/img/weather-forecast.jpg")';
+      });
+  } catch (error) {
+    showMsg('Превышен лимит фоновых изображений', 'Background Limit Exceeded');
+  }
 };
 
 export default changeBackground;

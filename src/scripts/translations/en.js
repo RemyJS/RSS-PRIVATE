@@ -1,4 +1,5 @@
 export default {
+  background: 'Image',
   search: 'Search',
   feellike: 'Apparent Temperature:',
   wind: 'Wind Speed',

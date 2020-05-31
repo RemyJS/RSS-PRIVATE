@@ -1,4 +1,5 @@
 export default {
+  background: 'Фон',
   search: 'Поиск',
   feellike: 'Ощущается как:',
   wind: 'Скорость ветра',
