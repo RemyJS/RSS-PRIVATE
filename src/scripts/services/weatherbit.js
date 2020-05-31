@@ -60,6 +60,7 @@ const getForecast = (city, cournty = '') => {
   const metric = localStorage.getItem('metric') || 'M';
   const lang = localStorage.getItem('lang');
   const url = `https://api.weatherbit.io/v2.0/forecast/daily?city=${city}${cournty}&days=4&units=${metric}&lang=${lang}&key=f588eabe44b14df09538a907aacc1426`;
+
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
@@ -68,6 +69,8 @@ const getForecast = (city, cournty = '') => {
     }).catch(() => {
       showMsg('Введите название населенного пункта', 'Enter city name');
     });
+
+
 };
 
 export { getForecast, getTemp };

@@ -14,7 +14,15 @@ const changeBackground = (event, image, region = '') => {
   if (typeof img === 'number') {
     img = weather[Math.floor(img / 100)];
     const country = region.split('/').pop();
-    img += `,${country}`;
+    const locale = new Date().toLocaleString('en-GB', { timeZone: region });
+    const hour = +(locale.slice(-8, -6));
+    let partDay;
+    if (hour > 8 && hour < 20) {
+      partDay = 'day';
+    } else {
+      partDay = 'night';
+    }
+    img += `,${country},${partDay}`;
   } else {
     img = 'sky';
   }
