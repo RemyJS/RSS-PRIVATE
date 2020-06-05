@@ -1,0 +1,12 @@
+.startpage {
+  height: 100vh;
+  background-image: url('../../assets/img/startbg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  overflow: auto;
+  flex-direction: column;
+}

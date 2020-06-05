@@ -1,0 +1,35 @@
+@font-face {
+  font-family: "literata";
+  src: url("../../assets/fonts/literata.ttf");
+}
+$main-color: black;
+* {
+  margin: 0;
+  padding: 0;
+}
+html, body {
+  height: 100%;
+}
+body {
+  color: $main-color;
+  font-size: 2.5vmin;
+  font-family: "fancyfonts";
+  background-color: aliceblue;
+}
+button, .button{
+  border: 2px solid whitesmoke;
+  padding: 5px 15px;
+  background-color: cadetblue;
+  border-radius: 5px;
+  color: whitesmoke;
+  font-weight: bold;
+  cursor: pointer;
+}
+button:hover, .button:hover {
+  background-color: whitesmoke;
+  border-color: cadetblue;
+  color: cadetblue;
+}
+.hidden {
+  display: none;
+}

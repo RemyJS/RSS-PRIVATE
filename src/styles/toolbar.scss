@@ -1,0 +1,10 @@
+.toolbar {
+  position: fixed;
+  display: flex;
+  top: 10px;
+  justify-content: flex-end;
+  width: 100%;
+  .toolbar__logout {
+    margin: 0 20px;
+  }
+}
