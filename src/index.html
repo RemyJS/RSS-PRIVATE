@@ -41,7 +41,7 @@
     <main class="main">
 
       <nav class="menu">
-        <form action="https://afternoon-falls-25894.herokuapp.com/words?" method="GET">
+        <form id="levelSetting"action="https://afternoon-falls-25894.herokuapp.com/words?" method="GET">
           <label for="group">Level</label>
           <select name="group" id="group" class="button">
             <option value="0">Beginer</option>
@@ -102,12 +102,23 @@
 
       <div class="resualt"></div>
 
-      <div class="source"></div>
+      <div class="source">
+        <span class="puzzle">this</span>
+        <span class="puzzle">is</span>
+        <span class="puzzle">English</span>
+        <span class="puzzle">Puzzle</span>
+        <span class="puzzle">this</span>
+        <span class="puzzle">is</span>
+        <span class="puzzle">English</span>
+        <span class="puzzle">Puzzle</span>
+        <span class="puzzle">this</span>
+        <span class="puzzle">is</span>
+      </div>
 
       <div class="controls">
         <button>I don't know</button>
         <button>Check</button>
-        <button>Continue</button>
+        <button id='continue'>Continue</button>
         <button>Results</button>
       </div>
     </main>

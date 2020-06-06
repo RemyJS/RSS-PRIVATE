@@ -1,3 +1,35 @@
 .main {
   margin: 0 50px;
 }
+.resualt {
+  width: 800px;
+  height: 400px;
+  background-image: url("../../assets/img/picture.jpg");
+  background-position: center;
+  background-size: 800px 400px;
+  background-repeat: no-repeat;
+}
+.puzzle {
+  height: 40px;
+  line-height: 40px;
+  padding: 0 20px;
+  text-align: center;
+  display: inline-block;
+  text-shadow: 1px 1px 5px black, 0 0 25px black;
+  background-image: url("../../assets/img/picture.jpg");
+  background-size: 800px 400px;
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  box-sizing: border-box;
+  color: whitesmoke;
+  user-select: none;
+  transform: translateX(0px) translateY(0px);
+  transition-duration: 400ms;
+}
+
+.source {
+  margin-top:20px;
+  border: 5px double cadetblue;
+  overflow: hidden;
+  display: inline-flex;
+}
