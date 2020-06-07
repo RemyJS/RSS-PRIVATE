@@ -23,8 +23,6 @@
   box-sizing: border-box;
   color: whitesmoke;
   user-select: none;
-  transform: translateX(0px) translateY(0px);
-  transition-duration: 400ms;
 }
 
 .source {
@@ -32,4 +30,13 @@
   border: 5px double cadetblue;
   overflow: hidden;
   display: inline-flex;
+}
+
+.resualt_round {
+  display: flex;
+  height: 40px;
+}
+
+.resualt_active {
+  border: 1px solid white;
 }

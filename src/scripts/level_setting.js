@@ -1,18 +1,22 @@
+import dragManagerInit from './dragmanager';
+
+dragManagerInit();
 const form = document.querySelector('#levelSetting');
 const page = document.querySelector('#page');
 const group = document.querySelector('#group');
 const source = document.querySelector('.source');
 const continueBtn = document.querySelector('#continue');
+const gameBoard = document.querySelector('.resualt');
 
 const renderRound = (round) => {
   source.innerText = '';
   round.forEach((el) => {
     const span = document.createElement('span');
-    span.className = 'puzzle';
+    span.className = 'puzzle draggable';
     span.innerHTML = el;
     source.append(span);
   });
-}
+};
 function* loadGame(round) {
   let i = 0;
   while (i < 11) {
