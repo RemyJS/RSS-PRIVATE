@@ -25,8 +25,7 @@ function startDrag() {
   const { avatar } = dragObject;
 
   document.body.appendChild(avatar);
-  avatar.style.zIndex = 10;
-  avatar.style.position = 'absolute';
+  avatar.classList.add('dragndrop');
 }
 
 function createAvatar() {
@@ -81,7 +80,7 @@ function finishDrag(event, avatar) {
 
 function onMouseUp(e) {
   if (dragObject.avatar) { // если перенос идет
-    dragObject.avatar.style = '';
+    dragObject.avatar.classList.remove('dragndrop');
     finishDrag(e, dragObject.avatar);
   }
   dragObject = {};

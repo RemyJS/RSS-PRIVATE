@@ -2,7 +2,9 @@
   font-family: "literata";
   src: url("../../assets/fonts/literata.ttf");
 }
-$main-color: black;
+$font-color: black;
+$main-color:cadetblue;
+$second-color: whitesmoke;
 * {
   margin: 0;
   padding: 0;
@@ -11,24 +13,24 @@ html, body {
   height: 100%;
 }
 body {
-  color: $main-color;
+  color: $font-color;
   font-size: 2.5vmin;
   font-family: "fancyfonts";
   background-color: aliceblue;
 }
 button, .button{
-  border: 2px solid whitesmoke;
+  border: 2px solid $second-color;
   padding: 5px 15px;
-  background-color: cadetblue;
+  background-color: $main-color;
   border-radius: 5px;
-  color: whitesmoke;
+  color: $second-color;
   font-weight: bold;
   cursor: pointer;
 }
 button:hover, .button:hover {
-  background-color: whitesmoke;
-  border-color: cadetblue;
-  color: cadetblue;
+  background-color: $second-color;
+  border-color: $main-color;
+  color: $main-color;
 }
 .hidden {
   display: none;

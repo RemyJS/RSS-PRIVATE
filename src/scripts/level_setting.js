@@ -10,9 +10,13 @@ const gameBoard = document.querySelector('.resualt');
 
 const renderRound = (round) => {
   source.innerText = '';
+  const path = gameBoard.offsetWidth / round.join('').length;
+  console.log(gameBoard.offsetWidth, path);
   round.forEach((el) => {
     const span = document.createElement('span');
+    const width = `${el.length * path}px`;
     span.className = 'puzzle draggable';
+    span.style.width = width;
     span.innerHTML = el;
     source.append(span);
   });
