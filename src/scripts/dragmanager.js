@@ -32,12 +32,10 @@ function createAvatar() {
   return dragObject.elem;
 }
 
-function getCoords(elem) { // кроме IE8-
+function getCoords(elem) {
   const box = elem.getBoundingClientRect();
   return {
-    // eslint-disable-next-line no-restricted-globals
     top: box.top + pageYOffset,
-    // eslint-disable-next-line no-restricted-globals
     left: box.left + pageXOffset,
   };
 }
@@ -86,10 +84,21 @@ function onMouseUp(e) {
   dragObject = {};
 }
 
+function clickZone(event) {
+  if (event.which !== 1) return; // right click
+  const puzzle = event.target.closest('.draggable');
+  if (!puzzle) return;
+  if (event.target.closest('.source')) {
+    DropToActiveZone(puzzle);
+  } else if (event.target.closest('.resualt_active')) {
+    DropToSourceZone(puzzle);
+  }
+}
 const dragManagerInit = () => {
   document.onmousemove = onMouseMove;
   document.onmouseup = onMouseUp;
   document.onmousedown = onMouseDown;
+  document.onclick = clickZone;
 };
 
 

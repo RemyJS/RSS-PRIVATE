@@ -16,5 +16,7 @@ module.exports = {
     quotes: ['error', 'single'],
     'linebreak-style': ['error', 'windows'],
     'no-param-reassign': ["error", { "props": false }],
+    'no-use-before-define': ["error", { "functions": false }],
+    "no-restricted-globals": ["error", "event", "fdescribe"],
   },
 };

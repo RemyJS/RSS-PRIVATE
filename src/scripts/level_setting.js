@@ -26,16 +26,22 @@ const renderRound = (round, y) => {
 };
 function* loadGame(round) {
   let i = 0;
-  while (i < 10) {
+  while (i < 10 && i < round.length) {
     yield renderRound(round[i], i);
     i += 1;
   }
 }
 const endRound = () => {
   continueBtn.onclick = () => {
-    alert('You win this round');
-  }
-}
+    const n = +page.value;
+    if (n < 29) {
+      page.value = n + 1;
+    } else {
+      page.value = '0';
+    }
+    setLevel();
+  };
+};
 const nextRound = (generator) => {
   const lastRound = document.querySelector('.resualt_active');
   if (lastRound) lastRound.classList.remove('resualt_active');
@@ -46,13 +52,16 @@ const nextRound = (generator) => {
   if (state.done) endRound();
 };
 
-const setLevel = async () => {
+async function setLevel() {
   fetch(`https://afternoon-falls-25894.herokuapp.com/words?group=${group.value}&page=${page.value}`)
     .then((res) => res.json())
     .then((data) => {
       const map = data.map((el) => el.textExample.split(' '));
       const fillterLevel = map.filter((el) => el.length < 11);
       const generator = loadGame(fillterLevel);
+      while (gameBoard.firstChild) {
+        gameBoard.removeChild(gameBoard.firstChild);
+      }
       continueBtn.onclick = () => {
         nextRound(generator);
       };
@@ -66,9 +75,6 @@ const setLevel = async () => {
 const settingInit = () => {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    while (gameBoard.firstChild) {
-      gameBoard.removeChild(gameBoard.firstChild);
-    }
     setLevel();
   });
 };
