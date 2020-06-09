@@ -7,12 +7,16 @@ const group = document.querySelector('#group');
 const source = document.querySelector('.source');
 const continueBtn = document.querySelector('#continue');
 const gameBoard = document.querySelector('.resualt');
-
+const shuffle = (arr) => {
+  arr.sort(() => Math.random() - 0.5);
+  return arr;
+}
 const renderRound = (round, y) => {
   source.innerText = '';
   const path = gameBoard.offsetWidth / round.join('').length;
   let bgx = 0;
   const bgy = y * -40;
+  let row = [];
   round.forEach((el) => {
     const span = document.createElement('span');
     const width = `${el.length * path}px`;
@@ -21,8 +25,10 @@ const renderRound = (round, y) => {
     span.style.backgroundPosition = `${bgx}px ${bgy}px`;
     bgx -= Number.parseFloat(width);
     span.innerHTML = el;
-    source.append(span);
+    row.push(span);
   });
+  row = shuffle(row);
+  row.forEach((span) => source.append(span));
 };
 function* loadGame(round) {
   let i = 0;
