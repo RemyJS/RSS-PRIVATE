@@ -15,8 +15,8 @@ function onMouseDown(event) {
   if (event.which !== 1) return; // right click
   const puzzle = event.target.closest('.draggable');
   if (!puzzle) return;
+  if ((event.target.closest('.source') || event.target.closest('.resualt_active')) == null) return;
   dragObject.elem = puzzle;
-  // запомним, что элемент нажат на текущих координатах pageX/pageY
   dragObject.downX = event.pageX;
   dragObject.downY = event.pageY;
 }
