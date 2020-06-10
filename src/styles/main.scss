@@ -37,6 +37,7 @@ $puzzle-height: 50px;
 .source {
   display: flex;
   width: $game-widht;
+  height: $puzzle-height;
   margin: 20px auto;
   border: 5px double $main-color;
   overflow: hidden;

@@ -1,6 +1,7 @@
 const autopronB = document.querySelector('#hints_auto');
 const playBtn = document.querySelector('#playButton');
 const translationB = document.querySelector('#hints_translation');
+const translationText = document.querySelector('.hints__translation');
 const wordB = document.querySelector('#hints_word');
 const imageB = document.querySelector('#hints_bgi');
 const audio = {
@@ -33,10 +34,21 @@ const tooglePuzzle = () => {
     });
   }
 };
+
+const toogleTransation = () => {
+  if (!translationB.classList.contains('button_checked')) {
+    translationB.classList.add('button_checked');
+    translationText.style.opacity = 1;
+  } else {
+    translationB.classList.remove('button_checked');
+    translationText.style.opacity = 0;
+  }
+};
+
 const hintsControlInit = () => {
   autopronB.onclick = toogleAuto;
   playBtn.onclick = playAudio;
-  // translationB.onclick = translation;
+  translationB.onclick = toogleTransation;
   imageB.onclick = tooglePuzzle;
 };
 
