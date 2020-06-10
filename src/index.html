@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" type="image/x-icon" href="..\assets\img\favicon.ico"/>
   <title>English puzzle</title>
 </head>
 
@@ -86,15 +87,15 @@
           </select>
           <button type="submit">Change level</button>
         </form>
-        <div class="hints-control">
-          <button title="auto-pronunciation">auto</button>
-          <button title="translation">tran</button>
-          <button title="word pronunciation">word</button>
-          <button title="background image">bg-i</button>
+        <div class="menu__hints_control">
+          <button id="hints_auto" title="auto-pronunciation">auto</button>
+          <button id="hints_translation" title="translation">tran</button>
+          <button id="hints_word" title="word pronunciation">word</button>
+          <button id="hints_bgi" title="background image">bg-i</button>
         </div>
       </nav>
       <div class="hints">
-        <button>иконка аудио</button>
+        <button class="hints__audio" id="playButton"></button>
         <div class="hints__translation">
           В блоке с подсказками могут находиться перевод предложения.
         </div>

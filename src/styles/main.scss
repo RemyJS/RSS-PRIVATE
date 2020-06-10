@@ -1,6 +1,9 @@
+$main-color:cadetblue;
+$second-color: whitesmoke;
 $game-widht: 800px;
 $game-height: 500px;
 $puzzle-height: 50px;
+
 .main {
   margin: 0 50px;
 }
@@ -12,6 +15,8 @@ $puzzle-height: 50px;
   background-size: $game-widht $game-height;
   background-repeat: no-repeat;
   margin: 0 auto;
+  border: 10px double $main-color;
+  border-radius: 10px;
 }
 .puzzle {
   height: $puzzle-height;
@@ -20,18 +25,20 @@ $puzzle-height: 50px;
   display: inline-block;
   text-shadow: 1px 1px 5px black, 0 0 25px black;
   background-image: url("../../assets/img/pict (2).jpg");
+  background-color: $main-color;
   background-size: $game-widht $game-height;
   background-repeat: no-repeat;
   background-position: 0px 0px;
   box-sizing: border-box;
-  color: whitesmoke;
+  color: $second-color;
   user-select: none;
+  font-weight: bold;
 }
 .source {
   display: flex;
   width: $game-widht;
   margin: 20px auto;
-  border: 5px double cadetblue;
+  border: 5px double $main-color;
   overflow: hidden;
 }
 .controls {

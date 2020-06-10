@@ -26,11 +26,15 @@ button, .button{
   color: $second-color;
   font-weight: bold;
   cursor: pointer;
+  outline: none;
 }
 button:hover, .button:hover {
   background-color: $second-color;
   border-color: $main-color;
   color: $main-color;
+}
+.button_checked {
+  background-color:#ffc107;
 }
 .hidden {
   display: none;
