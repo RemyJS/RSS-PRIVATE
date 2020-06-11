@@ -1,11 +1,15 @@
-$main-color:cadetblue;
+$main-color:#993366;
 $second-color: whitesmoke;
 $game-widht: 800px;
 $game-height: 500px;
 $puzzle-height: 50px;
 
 .main {
-  margin: 0 50px;
+  padding: 0 50px;
+  height: 100vh;
+  background-image: url('../../assets/img/startbg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .resualt {
   width: $game-widht;

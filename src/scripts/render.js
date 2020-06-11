@@ -1,9 +1,11 @@
-import { audio } from './controls';
+import { playAudio, audio } from './controls';
 
 const source = document.querySelector('.source');
 const gameBoard = document.querySelector('.resualt');
 const puzzleBackgroundToogle = document.querySelector('#hints_bgi');
 const translation = document.querySelector('.hints__translation');
+const autopronB = document.querySelector('#hints_auto');
+
 const shuffle = (arr) => {
   arr.sort(() => Math.random() - 0.5);
   return arr;
@@ -17,7 +19,9 @@ const renderRound = (round, y, bgi) => {
   const bgy = y * -50;
   audio.url = round.audioExample;
   translation.innerText = round.textExampleTranslate;
-
+  if (autopronB.classList.contains('button_checked')) {
+    playAudio();
+  }
   let row = textArray.map((el, idx) => {
     const span = document.createElement('span');
     const width = `${el.length * path}px`;

@@ -4,6 +4,7 @@ const translationB = document.querySelector('#hints_translation');
 const translationText = document.querySelector('.hints__translation');
 const wordB = document.querySelector('#hints_word');
 const imageB = document.querySelector('#hints_bgi');
+
 const audio = {
   get url() {
     return this.url1;
@@ -20,6 +21,7 @@ const playAudio = () => {
 const toogleAuto = () => {
   autopronB.classList.toggle('button_checked');
 };
+
 const tooglePuzzle = () => {
   const puzzles = document.querySelectorAll('.puzzle');
   if (!imageB.classList.contains('button_checked')) {
