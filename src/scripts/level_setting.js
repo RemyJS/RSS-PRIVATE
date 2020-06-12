@@ -41,6 +41,8 @@ async function setLevel() {
   fetch(`https://afternoon-falls-25894.herokuapp.com/words?group=${group.value}&page=${page.value}&wordsPerExampleSentenceLE=10&wordsPerPage=20`)
     .then((res) => res.json())
     .then((data) => {
+      localStorage.group = group.value;
+      localStorage.page = page.value;
       const fillterLevel = data.filter((el) => el.wordsPerExampleSentence < 11);
       const generator = loadGame(fillterLevel);
       while (gameBoard.firstChild) {
@@ -64,4 +66,4 @@ const settingInit = () => {
 };
 
 dragManagerInit();
-export default settingInit;
+export { settingInit, setLevel };

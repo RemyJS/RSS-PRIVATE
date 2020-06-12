@@ -10,12 +10,13 @@ $hinst-audio-size:50px;
 }
 .hints__audio {
   background-image: url('../../assets/img/sound.svg');
-  background-size: $hinst-audio-size - 10px;
+  background-size: $hinst-audio-size - 15px;
   background-repeat: no-repeat;
   background-position: center;
   width: $hinst-audio-size;
   height: $hinst-audio-size;
+  display: inline-block;
 }
-.hints__audio:hover {
+.hints__audio_play {
   background-image: url('../../assets/img/sound_bg.svg');
 }

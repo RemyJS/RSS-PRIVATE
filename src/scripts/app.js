@@ -4,7 +4,7 @@ import '../styles/menu.scss';
 import '../styles/main.scss';
 import '../styles/style.scss';
 
-import settingInit from './level_setting';
+import { settingInit } from './level_setting';
 import { hintsControlInit } from './controls';
 
 settingInit();
