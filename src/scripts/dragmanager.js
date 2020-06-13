@@ -1,12 +1,21 @@
+import { hideCheckButton, showCheckButton, hideDontKnowButton } from './game_control';
+
 const sourceZone = document.querySelector('.source');
 
 function DropToActiveZone(elem) {
   const activeZone = document.querySelector('.resualt_active');
   activeZone.append(elem);
+  if (sourceZone.childElementCount === 0) {
+    hideDontKnowButton();
+    showCheckButton();
+  } else {
+    hideCheckButton();
+  }
 }
 
 function DropToSourceZone(elem) {
   sourceZone.append(elem);
+  hideCheckButton();
 }
 
 let dragObject = {};

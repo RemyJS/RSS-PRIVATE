@@ -6,6 +6,8 @@ import '../styles/style.scss';
 
 import { settingInit } from './level_setting';
 import { hintsControlInit } from './controls';
+import { gameControlInit } from './game_control';
 
 settingInit();
 hintsControlInit();
+gameControlInit();

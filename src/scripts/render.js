@@ -1,4 +1,6 @@
+// eslint-disable-next-line import/no-cycle
 import { playAudio, audio } from './controls';
+import { showDontKnowButton } from './game_control';
 
 const source = document.querySelector('.source');
 const gameBoard = document.querySelector('.resualt');
@@ -12,6 +14,7 @@ const shuffle = (arr) => {
 };
 
 const renderRound = (round, y, bgi) => {
+  showDontKnowButton();
   source.innerText = '';
   const textArray = round.textExample.split(' ');
   const path = gameBoard.clientWidth / textArray.join('').length;

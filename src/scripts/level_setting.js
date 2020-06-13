@@ -1,6 +1,8 @@
-import dragManagerInit from './dragmanager';
+// eslint-disable-next-line import/no-cycle
 import renderRound from './render';
+import dragManagerInit from './dragmanager';
 import getImage from './services/background';
+import { hideCheckButton } from './game_control';
 
 const form = document.querySelector('#levelSetting');
 const page = document.querySelector('#page');
@@ -28,12 +30,14 @@ const endRound = () => {
   };
 };
 const nextRound = (generator) => {
+  hideCheckButton();
   const lastRound = document.querySelector('.resualt_active');
   if (lastRound) lastRound.classList.remove('resualt_active');
   const round = document.createElement('div');
   round.className = 'resualt_round resualt_active';
   gameBoard.append(round);
   const state = generator.next();
+  continueBtn.classList.add('hidden_button');
   if (state.done) endRound();
 };
 

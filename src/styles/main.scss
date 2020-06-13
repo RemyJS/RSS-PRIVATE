@@ -21,6 +21,7 @@ $puzzle-height: 50px;
   margin: 0 auto;
   border: 10px double $main-color;
   border-radius: 10px;
+  overflow: hidden;
 }
 .puzzle {
   height: $puzzle-height;
@@ -57,7 +58,8 @@ $puzzle-height: 50px;
 }
 
 .resualt_active {
-  border: 1px solid white;
+  border-top: 3px dashed $main-color;
+  border-bottom: 3px dashed $main-color;
 }
 
 .dragndrop {
