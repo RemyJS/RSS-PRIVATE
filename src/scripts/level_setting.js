@@ -2,7 +2,13 @@
 import renderRound from './render';
 import dragManagerInit from './dragmanager';
 import getImage from './services/background';
-import { hideCheckButton } from './game_control';
+import {
+  hideCheckButton,
+  showContinueButton,
+  hideContinueButton,
+  showResualtButton,
+  hideResualtButton,
+} from './game_control';
 
 const form = document.querySelector('#levelSetting');
 const page = document.querySelector('#page');
@@ -19,6 +25,8 @@ function* loadGame(round) {
   }
 }
 const endRound = () => {
+  showResualtButton();
+  showContinueButton();
   continueBtn.onclick = () => {
     const n = +page.value;
     if (n < 29) {
@@ -37,7 +45,7 @@ const nextRound = (generator) => {
   round.className = 'resualt_round resualt_active';
   gameBoard.append(round);
   const state = generator.next();
-  continueBtn.classList.add('hidden_button');
+  hideContinueButton();
   if (state.done) endRound();
 };
 
@@ -45,6 +53,7 @@ async function setLevel() {
   fetch(`https://afternoon-falls-25894.herokuapp.com/words?group=${group.value}&page=${page.value}&wordsPerExampleSentenceLE=10&wordsPerPage=20`)
     .then((res) => res.json())
     .then((data) => {
+      hideResualtButton();
       localStorage.group = group.value;
       localStorage.page = page.value;
       const fillterLevel = data.filter((el) => el.wordsPerExampleSentence < 11);

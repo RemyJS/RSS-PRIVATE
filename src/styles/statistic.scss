@@ -1,0 +1,49 @@
+$main-color:#993366;
+$second-color: whitesmoke;
+$s-audio-size: 30px;
+
+.statistic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  padding: 0 50px;
+  height: 100vh;
+  background-image: url('../../assets/img/startbg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  figure {
+    text-align: center;
+  }
+}
+.statistic__image{
+  width: 200px;
+  border-radius: 10px;
+}
+.statistic__wrap{
+  border: 3px double $main-color;
+  background-color: $second-color;
+  padding: 50px;
+  border-radius: 20px;
+}
+.statistic__score{
+  height: 500px;
+}
+.statistic__block {
+  display: flex;
+}
+.statistic__audio {
+  background-image: url('../../assets/img/sound_bg.svg');
+  background-size: $s-audio-size - 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: $s-audio-size;
+  height: $s-audio-size;
+  display: inline-block;
+  cursor: pointer;
+}
+.statistic__text {
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: bold;
+}

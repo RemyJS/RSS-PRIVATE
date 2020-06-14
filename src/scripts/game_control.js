@@ -1,28 +1,38 @@
+import { roundResult, fillterResualt } from './resualt';
+
 const continueBtn = document.querySelector('#continue');
 const dontKnowBtn = document.querySelector('#dontKnow');
 const checkBtn = document.querySelector('#checkBtn');
 const resualtBtn = document.querySelector('#resualtBtn');
 
-const roundResult = {
-  statistic: {},
-  reset() {
-    this.statistic = {};
-  },
-};
 const hideDontKnowButton = () => {
-  if (!dontKnowBtn.classList.contains('hidden_button')) dontKnowBtn.classList.add('hidden_button');
+  if (!dontKnowBtn.classList.contains('hidden')) dontKnowBtn.classList.add('hidden');
 };
 const showDontKnowButton = () => {
-  if (dontKnowBtn.classList.contains('hidden_button')) dontKnowBtn.classList.remove('hidden_button');
+  if (dontKnowBtn.classList.contains('hidden')) dontKnowBtn.classList.remove('hidden');
 };
 const showCheckButton = () => {
-  if (checkBtn.classList.contains('hidden_button')) checkBtn.classList.remove('hidden_button');
+  if (checkBtn.classList.contains('hidden')) checkBtn.classList.remove('hidden');
 };
 const hideCheckButton = () => {
-  if (!checkBtn.classList.contains('hidden_button')) checkBtn.classList.add('hidden_button');
+  if (!checkBtn.classList.contains('hidden')) checkBtn.classList.add('hidden');
+};
+const showResualtButton = () => {
+  if (resualtBtn.classList.contains('hidden')) resualtBtn.classList.remove('hidden');
+};
+const hideResualtButton = () => {
+  if (!resualtBtn.classList.contains('hidden')) resualtBtn.classList.add('hidden');
+};
+const showContinueButton = () => {
+  if (continueBtn.classList.contains('hidden')) continueBtn.classList.remove('hidden');
+};
+const hideContinueButton = () => {
+  if (!continueBtn.classList.contains('hidden')) continueBtn.classList.add('hidden');
 };
 
+
 const iDontKnow = () => {
+  roundResult.winRounds.push(false);
   const resualt = document.querySelector('.resualt_active');
   const active = Array.from(document.querySelectorAll('.resualt_active .puzzle'));
   const source = Array.from(document.querySelectorAll('.source .puzzle'));
@@ -32,7 +42,7 @@ const iDontKnow = () => {
   puzzles.forEach((el) => resualt.append(el));
   hideDontKnowButton();
   hideCheckButton();
-  continueBtn.classList.remove('hidden_button');
+  showContinueButton();
 };
 
 const checkPuzzles = () => {
@@ -50,7 +60,8 @@ const checkPuzzles = () => {
     }, 3000);
   });
   if (isWin) {
-    continueBtn.classList.remove('hidden_button');
+    roundResult.winRounds.push(true);
+    continueBtn.classList.remove('hidden');
     hideCheckButton();
   } else {
     showDontKnowButton();
@@ -59,6 +70,7 @@ const checkPuzzles = () => {
 const gameControlInit = () => {
   dontKnowBtn.onclick = iDontKnow;
   checkBtn.onclick = checkPuzzles;
+  resualtBtn.onclick = fillterResualt;
 };
 
 export {
@@ -67,4 +79,8 @@ export {
   showCheckButton,
   hideDontKnowButton,
   showDontKnowButton,
+  showResualtButton,
+  hideResualtButton,
+  showContinueButton,
+  hideContinueButton,
 };

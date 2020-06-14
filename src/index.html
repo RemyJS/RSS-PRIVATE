@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" type="image/x-icon" href="..\assets\img\favicon.ico"/>
+  <link rel="shortcut icon" type="image/x-icon" href="..\assets\img\favicon.ico" />
   <title>English puzzle</title>
 </head>
 
@@ -42,7 +42,7 @@
     <main class="main hidden">
 
       <nav class="menu">
-        <form id="levelSetting"action="https://afternoon-falls-25894.herokuapp.com/words?" method="GET">
+        <form id="levelSetting" action="https://afternoon-falls-25894.herokuapp.com/words?" method="GET">
           <label for="group">Level</label>
           <select name="group" id="group" class="button">
             <option value="0">Beginer</option>
@@ -127,7 +127,51 @@
       </div>
     </main>
 
-    <section class="statistic hidden">
+    <section class="statistic">
+      <div class="statistic__wrap">
+        <figure>
+          <img class="statistic__image" src="../assets/img/pict (1).jpg" alt="русская картина">
+          <figcaption>Russian Picture</figcaption>
+        </figure>
+        <div class="statistic__score">
+          <div class="statistic__score_wrap">
+            <h5>I know 5</h5>
+            <div class="statistic__block">
+              <div class="statistic__audio"></div>
+              <p class="statistic__text">The students agree they have too much homework</p>
+            </div>
+            <div class="statistic__block">
+              <div class="statistic__audio"></div>
+              <p class="statistic__text">The students agree they have too much homework</p>
+            </div>
+            <div class="statistic__block">
+              <div class="statistic__audio"></div>
+              <p class="statistic__text">The students agree they have too much homework</p>
+            </div>
+            <div class="statistic__block">
+              <div class="statistic__audio"></div>
+              <p class="statistic__text">The students agree they have too much homework</p>
+            </div>
+          </div>
+
+          <div class="statistic__score_wrap">
+            <h5>I don't know 5</h5>
+            <div class="statistic__block">
+              <div class="statistic__audio"></div>
+              <p class="statistic__text">The students agree they have too much homework</p>
+            </div>
+            <div class="statistic__block">
+              <div class="statistic__audio"></div>
+              <p class="statistic__text">The students agree they have too much homework</p>
+            </div>
+            <div class="statistic__block">
+              <div class="statistic__audio"></div>
+              <p class="statistic__text">The students agree they have too much homework</p>
+            </div>
+          </div>
+        </div>
+        <button id='closeStatisticBtn'>Close Results</button>
+      </div>
 
     </section>
   </div>
