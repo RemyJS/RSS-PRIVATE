@@ -1,6 +1,8 @@
 const statisticScore = document.querySelector('.statistic__score');
 const statisticImage = document.querySelector('.statistic__image');
 const main = document.querySelector('.main');
+const closeBtn = document.querySelector('#closeStatisticBtn');
+const statistic = document.querySelector('.statistic');
 const roundResult = {
   bgi: '',
   statistic: [],
@@ -65,6 +67,11 @@ const fillterResualt = () => {
   renderStatisticScore(correct, wrong);
   roundResult.reset();
   main.classList.add('hidden');
+  statistic.classList.remove('hidden');
 };
 
+closeBtn.onclick = () => {
+  main.classList.remove('hidden');
+  statistic.classList.add('hidden');
+};
 export { loadResualt, roundResult, fillterResualt };
