@@ -27,6 +27,8 @@ function* loadGame(round) {
 const endRound = () => {
   showResualtButton();
   showContinueButton();
+  const puzzles = document.querySelectorAll('.puzzle');
+  puzzles.forEach((el) => { el.innerHTML = ''; });
   continueBtn.onclick = () => {
     const n = +page.value;
     if (n < 29) {
